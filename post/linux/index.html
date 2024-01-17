@@ -1,0 +1,559 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux学习路线 | 子墨の小屋</title><meta name="author" content="何子墨"><meta name="copyright" content="何子墨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 学习路线💂 + 💻 &#x3D; 👴🏽 建议先观看视频入门：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1ev411G7VE&#x2F; 为什么学 Linux？相比于 Windows，Linux 免费、开源、安全、灵活、稳定、便于开发，所以更受企业青睐，甚至 90% 以上 的企业应用都是用 Linux 服务器部署的。 无论是前端、后端、算法、测试、运维等计算机相关岗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习路线">
+<meta property="og:url" content="http://zmswa.cn/post/linux/index.html">
+<meta property="og:site_name" content="子墨の小屋">
+<meta property="og:description" content="Linux 学习路线💂 + 💻 &#x3D; 👴🏽 建议先观看视频入门：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1ev411G7VE&#x2F; 为什么学 Linux？相比于 Windows，Linux 免费、开源、安全、灵活、稳定、便于开发，所以更受企业青睐，甚至 90% 以上 的企业应用都是用 Linux 服务器部署的。 无论是前端、后端、算法、测试、运维等计算机相关岗">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg">
+<meta property="article:published_time" content="2024-01-10T08:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-10T07:58:36.036Z">
+<meta property="article:author" content="何子墨">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2023/12/31/gSwF5eh6bGkxLri.png"><link rel="canonical" href="http://zmswa.cn/post/linux/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux学习路线',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-10 15:58:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/ziti.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/12/30/GO1i5dQDWSUwbP3.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="http://zmswa.cn/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-tags"></i><span> 资源合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="http://zmswa.cn/html/yanhua/"><i class="fa-fw fas fa-tools"></i><span> 烟花</span></a></li><li><a class="site-page child" href="http://zmswa.cn/html/cs/"><i class="fa-fw fas fa-gamepad"></i><span> 选餐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="子墨の小屋"><span class="site-name">子墨の小屋</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="http://zmswa.cn/"><i class="fa-fw fas fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 导航</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-tags"></i><span> 资源合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="http://zmswa.cn/html/yanhua/"><i class="fa-fw fas fa-tools"></i><span> 烟花</span></a></li><li><a class="site-page child" href="http://zmswa.cn/html/cs/"><i class="fa-fw fas fa-gamepad"></i><span> 选餐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux学习路线</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-10T08:00:00.000Z" title="发表于 2024-01-10 16:00:00">2024-01-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-10T07:58:36.036Z" title="更新于 2024-01-10 15:58:36">2024-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux%E5%AD%A6%E4%B9%A0/">linux学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux学习路线"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><div class="top-img gist" style="background-image: url(https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg)"></div><article class="post-content" id="article-container"><h1 id="Linux-学习路线"><a href="#Linux-学习路线" class="headerlink" title="Linux 学习路线"></a>Linux 学习路线</h1><p>💂 + 💻 &#x3D; 👴🏽</p>
+<p>建议先观看视频入门：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ev411G7VE/">https://www.bilibili.com/video/BV1ev411G7VE/</a></p>
+<h2 id="为什么学-Linux？"><a href="#为什么学-Linux？" class="headerlink" title="为什么学 Linux？"></a>为什么学 Linux？</h2><p>相比于 Windows，Linux 免费、开源、安全、灵活、稳定、便于开发，所以更受企业青睐，甚至 <strong>90% 以上</strong> 的企业应用都是用 Linux 服务器部署的。</p>
+<p>无论是前端、后端、算法、测试、运维等计算机相关岗位的同学，都建议学习下 Linux，大有裨益。</p>
+<h2 id="学习境界"><a href="#学习境界" class="headerlink" title="学习境界"></a>学习境界</h2><p>首先，Linux 入门很简单，但想学的透彻难上加难！</p>
+<p>因此，在学习之前要明确目标。</p>
+<p>可以 Linux 的学习分为几种境界：</p>
+<ol>
+<li>明劲，就是了解 Linux 的基本概念，会敲常用命令来应对工作。对于大多数想从事开发和运维岗位的同学，学到这就足够找到工作了。</li>
+<li>暗劲，又分为两种境界，能理解 Linux 尤其是其内核的设计思想，为小圆满；能将其思想应用到系统的架构设计中，为大圆满。暗劲境界的高手，冲击大厂、做架构师、从事底层开发，都不成问题。</li>
+<li>化劲，可谓出神入化，不仅熟知 Linux 的使用、思想和细节，更能推陈出新，自主创造新的系统。</li>
+</ol>
+<p>当然，一般情况下，会用就够了，想进大厂最好也学习一些内核的设计思想。找到工作后，是否要深入学习完全取决于你自己。</p>
+<h2 id="路线"><a href="#路线" class="headerlink" title="路线"></a>路线</h2><h3 id="Linux-基础知识"><a href="#Linux-基础知识" class="headerlink" title="Linux 基础知识"></a>Linux 基础知识</h3><ul>
+<li>发展历史</li>
+<li>⭐ 特点和优势</li>
+<li>应用场景</li>
+<li>⭐ 常见 Linux 系统版本（推荐 CentOS 7+）<ul>
+<li>⭐ CentOS</li>
+<li>⭐ Ubuntu</li>
+<li>Debian</li>
+<li>Fedora</li>
+</ul>
+</li>
+<li>何为开源？</li>
+</ul>
+<h3 id="Linux-环境"><a href="#Linux-环境" class="headerlink" title="Linux 环境"></a>Linux 环境</h3><ul>
+<li>搭建方式<ul>
+<li>⭐ 虚拟机</li>
+<li>⭐ 云服务器</li>
+<li>在线工具</li>
+<li>WSL</li>
+<li>Docker 容器</li>
+</ul>
+</li>
+<li>远程连接<ul>
+<li>⭐ SSH</li>
+<li>连接工具<ul>
+<li>⭐ XShell</li>
+<li>⭐ MobaXterm</li>
+<li>SecureCRT</li>
+<li>Putty</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h3><blockquote>
+<p>此处只列举命令名称，命令的具体用法可直接在手册中（ <a target="_blank" rel="noopener" href="https://www.linuxcool.com/">https://www.linuxcool.com</a> ） 查询</p>
+</blockquote>
+<h4 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h4><ul>
+<li>uname 查看系统信息</li>
+<li>hostname 查看主机名</li>
+<li>cat &#x2F;proc&#x2F;cpuinfo 查看 CPU 信息</li>
+<li>lsmod 查看已加载的系统模块</li>
+<li>top 查看系统使用情况</li>
+<li>df 查看磁盘使用情况</li>
+<li>fdisk 查看磁盘分区</li>
+<li>du 查看目录使用情况</li>
+<li>iostat 查看 I &#x2F; O 使用情况</li>
+<li>free 显示系统内存情况</li>
+<li>env 查看环境变量</li>
+<li>uptime 查看系统运行时间、用户数、负载</li>
+</ul>
+<h4 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h4><ul>
+<li>shutdown 关机</li>
+<li>reboot 重启</li>
+<li>mount 挂载设备</li>
+<li>umount 卸载设备</li>
+</ul>
+<h4 id="用户相关"><a href="#用户相关" class="headerlink" title="用户相关"></a>用户相关</h4><ul>
+<li>su 切换用户</li>
+<li>sudo 以管理员身份执行</li>
+<li>who 查看当前用户名</li>
+<li>ssh 远程连接</li>
+<li>logout 注销</li>
+<li>useradd 创建用户</li>
+<li>userdel 删除用户</li>
+<li>usermod 修改用户</li>
+<li>groupadd 创建用户组</li>
+<li>groupdel 删除用户组</li>
+<li>groupmod 修改用户组</li>
+<li>passwd 修改密码</li>
+<li>last 显示用户或终端的登录情况</li>
+</ul>
+<h4 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h4><ul>
+<li>cd 切换目录</li>
+<li>ls 查看目录列表</li>
+<li>tree 打印目录树</li>
+<li>mkdir 创建目录</li>
+<li>rm 删除目录</li>
+<li>touch 新建文件</li>
+<li>cp 复制文件</li>
+<li>mv 移动文件</li>
+<li>ln 创建文件链接</li>
+<li>find 搜索文件</li>
+<li>locate 定位文件</li>
+<li>whereis 查看可执行文件路径</li>
+<li>which 在 PATH 指定的路径中，搜索某系统命令的位置</li>
+<li>chmod 设置目录权限</li>
+<li>cat &#x2F; more &#x2F; less 查看文件</li>
+<li>tac 倒序查看文件</li>
+<li>head &#x2F; tail 查看文件开头 &#x2F; 结尾</li>
+<li>paste 合并文件</li>
+<li>zip &#x2F; tar &#x2F; gzip 压缩文件</li>
+<li>unzip &#x2F; tar &#x2F; gunzip 解压文件</li>
+<li>grep &#x2F; sed &#x2F; awk 文本处理</li>
+<li>vim 文本编辑</li>
+</ul>
+<h4 id="程序相关"><a href="#程序相关" class="headerlink" title="程序相关"></a>程序相关</h4><ul>
+<li>crontab 计划任务</li>
+<li>nohup 后台运行程序</li>
+<li>jobs 查看系统任务</li>
+<li>ps 查看进程</li>
+<li>kill 杀死进程</li>
+<li>rpm &#x2F; yum &#x2F; apt &#x2F; apt-get &#x2F; dpkg 软件包管理</li>
+<li>service &#x2F; systemctl 服务管理</li>
+</ul>
+<h4 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h4><ul>
+<li>ifconfig 查看网络属性</li>
+<li>netstat 查看网络状态</li>
+<li>iptables 查看 iptables 规则</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>date 显示系统时间</li>
+<li>cal 显示日历</li>
+<li>history 显示与操作历史</li>
+<li>help 帮助</li>
+<li>alias 别名</li>
+</ul>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><ul>
+<li>用户</li>
+<li>用户组</li>
+<li>ACL 权限管理</li>
+<li>用户切换</li>
+<li>管理员</li>
+</ul>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><ul>
+<li>文件操作<ul>
+<li>创建</li>
+<li>修改</li>
+<li>复制</li>
+<li>移动</li>
+<li>删除</li>
+</ul>
+</li>
+<li>文件浏览</li>
+<li>文件搜索</li>
+<li>文件权限</li>
+<li>软硬链接</li>
+<li>压缩 &#x2F; 解压</li>
+</ul>
+<h3 id="文本操作"><a href="#文本操作" class="headerlink" title="文本操作"></a>文本操作</h3><ul>
+<li>正则表达式</li>
+<li>grep</li>
+<li>sed</li>
+<li>awk</li>
+</ul>
+<h3 id="VIM-编辑器"><a href="#VIM-编辑器" class="headerlink" title="VIM 编辑器"></a>VIM 编辑器</h3><ul>
+<li>基本操作</li>
+<li>模式</li>
+<li>快捷键</li>
+<li>VIM 定制</li>
+<li>插件增强</li>
+</ul>
+<h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><ul>
+<li>使用情况查询</li>
+<li>磁盘分区</li>
+<li>挂载</li>
+</ul>
+<h3 id="驱动管理"><a href="#驱动管理" class="headerlink" title="驱动管理"></a>驱动管理</h3><ul>
+<li>驱动加载</li>
+<li>驱动更新</li>
+<li>网卡</li>
+<li>显卡</li>
+</ul>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><ul>
+<li>启动进程</li>
+<li>杀死进程</li>
+<li>查看进程</li>
+<li>前台 &#x2F; 后台任务</li>
+<li>进程监控</li>
+</ul>
+<h3 id="计划任务"><a href="#计划任务" class="headerlink" title="计划任务"></a>计划任务</h3><ul>
+<li>crond 服务</li>
+<li>crontab 命令</li>
+</ul>
+<h3 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h3><ul>
+<li>IP</li>
+<li>端口</li>
+<li>主机名</li>
+<li>hosts</li>
+<li>网络配置</li>
+<li>网络状态</li>
+<li>网络监控</li>
+</ul>
+<h3 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h3><ul>
+<li>系统设置<ul>
+<li>日期时间</li>
+<li>语言</li>
+<li>字符集</li>
+</ul>
+</li>
+<li>系统服务</li>
+<li>环境变量</li>
+<li>日志</li>
+<li>系统关机 &#x2F; 重启</li>
+<li>数据备份与恢复</li>
+</ul>
+<h3 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h3><ul>
+<li>服务查看</li>
+<li>启动服务</li>
+<li>禁用服务</li>
+<li>删除服务</li>
+<li>开机自启</li>
+</ul>
+<h3 id="软件管理"><a href="#软件管理" class="headerlink" title="软件管理"></a>软件管理</h3><ul>
+<li>软件包管理器<ul>
+<li>⭐ rpm</li>
+<li>⭐ yum</li>
+<li>apt</li>
+<li>apt-get</li>
+<li>dpkg</li>
+</ul>
+</li>
+<li>软件安装</li>
+<li>软件更新</li>
+<li>软件卸载</li>
+<li>源码安装</li>
+</ul>
+<h3 id="常用软件-服务搭建"><a href="#常用软件-服务搭建" class="headerlink" title="常用软件 &#x2F; 服务搭建"></a>常用软件 &#x2F; 服务搭建</h3><ul>
+<li>HTTP</li>
+<li>Mail</li>
+<li>NFS</li>
+<li>DNS</li>
+<li>FTP</li>
+<li>mysql</li>
+<li>LVS + Keepalived</li>
+<li>Apache</li>
+<li>Nginx</li>
+<li>Redis</li>
+<li>日志服务</li>
+</ul>
+<h3 id="Shell-脚本编程"><a href="#Shell-脚本编程" class="headerlink" title="Shell 脚本编程"></a>Shell 脚本编程</h3><ul>
+<li>默认变量</li>
+<li>运算符</li>
+<li>条件</li>
+<li>循环</li>
+<li>执行</li>
+<li>函数<ul>
+<li>系统函数</li>
+<li>自定义函数</li>
+</ul>
+</li>
+<li>规范</li>
+<li>调试方法</li>
+<li>管道</li>
+<li>I&#x2F;O 重定向</li>
+</ul>
+<h3 id="Linux-启动过程"><a href="#Linux-启动过程" class="headerlink" title="Linux 启动过程"></a>Linux 启动过程</h3><ul>
+<li>BIOS 启动引导</li>
+<li>引导加载程序</li>
+<li>内核加载</li>
+<li>系统初始化（init）</li>
+<li>运行级别</li>
+<li>启动内核</li>
+<li>执行初始化脚本</li>
+<li>用户登录</li>
+</ul>
+<h3 id="Linux-内核"><a href="#Linux-内核" class="headerlink" title="Linux 内核"></a>Linux 内核</h3><ul>
+<li>内核的组成</li>
+<li>目录结构</li>
+<li>版本</li>
+<li>模块</li>
+<li>编译</li>
+<li>裁剪</li>
+</ul>
+<h3 id="第三方工具"><a href="#第三方工具" class="headerlink" title="第三方工具"></a>第三方工具</h3><ul>
+<li>Ansible</li>
+<li>Webmin</li>
+<li>宝塔 Linux</li>
+</ul>
+<h2 id="岗位"><a href="#岗位" class="headerlink" title="岗位"></a>岗位</h2><ul>
+<li>后端开发（Java &#x2F; Go &#x2F; C++）</li>
+<li>底层开发（C &#x2F; C++）</li>
+<li>运维开发</li>
+<li>大数据</li>
+<li>云计算</li>
+<li>自动化运维</li>
+<li>嵌入式开发</li>
+<li>网络工程师</li>
+</ul>
+<h2 id="学习建议"><a href="#学习建议" class="headerlink" title="学习建议"></a>学习建议</h2><p>多动手实践，建议自己购买一台云服务器，并且在本地搭建 Linux 虚拟机环境。</p>
+<p>一定要自己从 0 开始手敲命令安装软件、部署服务，熟悉整个项目的上线流程。</p>
+<p>每个命令至少要跟着敲一遍，了解它们的作用，并通过自然地练习，熟悉常用的 Linux 命令。</p>
+<p>记不住没关系，用文档查就行了。</p>
+<p>先会用，再理解。</p>
+<p>时间不多的话，可以通过面试题来了解一些 Linux 设计思想，而不是直接去深入学习内核，虽说学会了的确大有裨益，但性价比不高。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ul>
+<li><p>视频</p>
+<ul>
+<li>⭐ 2021 韩顺平 一周学会Linux：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sv411r7vd/">https://www.bilibili.com/video/BV1Sv411r7vd/</a>   （基于 CentOS 7.6 版本较新，视频长度刚刚好，也比较完整）</li>
+<li>【千锋】Linux 云计算基础视频教程 650 集入门：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pz4y1D73n/">https://www.bilibili.com/video/BV1pz4y1D73n/</a>     （很全面，适合时间足够、想认真学的同学）</li>
+<li>【狂神说Java】Linux 教程 - 阿里云真实环境学习：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV187411y7hF">https://www.bilibili.com/video/BV187411y7hF</a>   （算是个小的入门教程吧，时间足够的话还是推荐看更完整的）</li>
+<li>细说Linux - 从入门到精通：<a target="_blank" rel="noopener" href="https://study.163.com/course/courseMain.htm?courseId=983014/">https://study.163.com/course/courseMain.htm?courseId=983014/</a>               （  感觉有点啰嗦，作为备用吧）</li>
+<li>玩转Vim 从放弃到爱不释手：<a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1129">https://www.imooc.com/learn/1129</a>    （好评很多）</li>
+<li>阿里云 Linux 运维学习路线：<a target="_blank" rel="noopener" href="https://edu.aliyun.com/roadmap/linux">https://edu.aliyun.com/roadmap/linux</a></li>
+</ul>
+</li>
+<li><p>书籍</p>
+<ul>
+<li>《鸟哥的 Linux 私房菜 —— 基础篇》：<a target="_blank" rel="noopener" href="http://cn.linux.vbird.org/linux_basic/linux_basic.php">http://cn.linux.vbird.org/linux_basic/linux_basic.php</a>     （经典）</li>
+<li>《深入理解 LINUX 内核》：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1767120/">https://book.douban.com/subject/1767120/</a></li>
+<li>《深入Linux内核架构》：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/4843567/">https://book.douban.com/subject/4843567/</a></li>
+<li>《Linux内核完全剖析》：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/3229243/">https://book.douban.com/subject/3229243/</a></li>
+<li>《Linux内核设计与实现(原书第3版)》：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/6097773/">https://book.douban.com/subject/6097773/</a></li>
+</ul>
+</li>
+<li><p>文档</p>
+<ul>
+<li>Linux 教程（菜鸟教程）：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-tutorial.html">https://www.runoob.com/linux/linux-tutorial.html</a></li>
+<li>Linux 教程（W3CSchool）：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/linux/">https://www.w3cschool.cn/linux/</a></li>
+<li>Linux 工具快速教程：<a target="_blank" rel="noopener" href="https://linuxtools-rst.readthedocs.io(基础、工具进阶、工具参考)/">https://linuxtools-rst.readthedocs.io（基础、工具进阶、工具参考）</a></li>
+</ul>
+</li>
+<li><p>合集</p>
+<ul>
+<li>Linux内核学习资料：<a target="_blank" rel="noopener" href="https://github.com/0voice/linux_kernel_wiki">https://github.com/0voice/linux_kernel_wiki</a></li>
+<li>GitHub Linux 专区：<a target="_blank" rel="noopener" href="https://github.com/topics/linux">https://github.com/topics/linux</a>      （很多好项目）</li>
+<li>GitHub Linux 合集：<a target="_blank" rel="noopener" href="https://github.com/inputsh/awesome-linux">https://github.com/inputsh/awesome-linux</a>   （Linux 系列技术）</li>
+<li>StackOverflow：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/tagged/linux">https://stackoverflow.com/questions/tagged/linux</a>  （解决问题必备）</li>
+<li>掘金 Linux 专区：<a target="_blank" rel="noopener" href="https://juejin.cn/tag/Linux">https://juejin.cn/tag/Linux</a>    （技术文章）</li>
+</ul>
+</li>
+<li><p>实战</p>
+<ul>
+<li>⭐ 蓝桥云课 Linux 基础入门：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/1">https://www.lanqiao.cn/courses/1</a>   （强烈推荐）</li>
+<li>腾讯云动手实验室：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/labs">https://cloud.tencent.com/developer/labs</a></li>
+<li>阿里云体验实验室：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/adc/labs/">https://developer.aliyun.com/adc/labs/</a></li>
+<li>阿里云知行实验室：<a target="_blank" rel="noopener" href="https://start.aliyun.com/">https://start.aliyun.com/</a></li>
+<li>华为云沙箱实验室：<a target="_blank" rel="noopener" href="https://lab.huaweicloud.com/">https://lab.huaweicloud.com/</a></li>
+</ul>
+</li>
+<li><p>社区（国内倒的差不多了）</p>
+<ul>
+<li>Linux 中国：<a target="_blank" rel="noopener" href="https://linux.cn/">https://linux.cn/</a></li>
+<li>开源中国：<a target="_blank" rel="noopener" href="https://www.oschina.net/%EF%BC%88%E7%BB%BC%E5%90%88%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%EF%BC%89">https://www.oschina.net/（综合的开源社区）</a></li>
+<li>红帽官网：<a target="_blank" rel="noopener" href="https://www.redhat.com/zh">https://www.redhat.com/zh</a></li>
+</ul>
+</li>
+<li><p>工具</p>
+<ul>
+<li>DistroTest 在线操作系统测试：<a target="_blank" rel="noopener" href="https://distrotest.net/">https://distrotest.net</a></li>
+<li>⭐ Linux 命令搜索：<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command">https://wangchujiang.com/linux-command</a></li>
+<li>Linux 命令大全手册：<a target="_blank" rel="noopener" href="https://man.linuxde.net/">https://man.linuxde.net/</a></li>
+<li>Linux 命令大全手册：<a target="_blank" rel="noopener" href="https://www.linuxcool.com/">https://www.linuxcool.com/</a></li>
+<li>Linux 命令示例：<a target="_blank" rel="noopener" href="http://linux-commands-examples.com/">http://linux-commands-examples.com/</a></li>
+<li>宝塔 Linux 面板：<a target="_blank" rel="noopener" href="https://www.bt.cn/">https://www.bt.cn/</a></li>
+<li>在线 Shell 脚本检查：<a target="_blank" rel="noopener" href="https://www.shellcheck.net/">https://www.shellcheck.net</a></li>
+</ul>
+</li>
+<li><p>面试题</p>
+<ul>
+<li><p>牛客网 Linux 专项练习：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/intelligentTest">https://www.nowcoder.com/intelligentTest</a></p>
+</li>
+<li><p>牛客网 Linux 面试题：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/search?query=linux%E9%9D%A2%E8%AF%95%E9%A2%98&type=question">https://www.nowcoder.com/search?query=linux%E9%9D%A2%E8%AF%95%E9%A2%98&type=question</a></p>
+</li>
+<li><p>Linux 常见面试题整理：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/376749877">https://zhuanlan.zhihu.com/p/376749877</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://zmswa.cn">何子墨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://zmswa.cn/post/linux/">http://zmswa.cn/post/linux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://zmswa.cn" target="_blank">子墨の小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/html1/" title="Hexo 博客技巧：添加自定义 html 页面"><img class="cover" src="https://s2.loli.net/2024/01/05/waoLc6vj7BbIlpr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo 博客技巧：添加自定义 html 页面</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/12/30/GO1i5dQDWSUwbP3.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">何子墨</div><div class="author-info__description">活着比热爱重要</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" href="https://zmswa.cn"><i class="fab fa-github"></i><span>摸鱼</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><b><font color="#e66b6d">双</font> <font color="#e66d98">手</font> <font color="#e66cc6">合</font> <font color="#cc6de6">十</font> <font color="#9770e6">成</font> <font color="#6d93e6">为</font> <font color="#6fcde6">自</font> <font color="#72e6b6">己</font> <font color="#72e689">的</font> <font color="#99e670">神</font>, <font color="#cde670">自</font> <font color="#e6df72">己</font> <font color="#e6c073">所</font> <font color="#e6a271">信</font> <font color="#e6796f">念</font> <font color="#e65454">的</font> <font color="#e63333">即</font> <font color="#e62c2c">是</font> <font color="#e60101">信</font> <font color="#e60101">仰</font></b> <p align="center"><img src="https://haiyong.site/img/img-blog.csdnimg.cn/f7384c88956d4378b72e47548e19c9f8.gif" width="50" alt="mao"></p> <p align="center">微信号：HT-T-TH</p> <p align="center">QQ号：491298200</p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="toc-number">1.</span> <span class="toc-text">Linux 学习路线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6-Linux%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">为什么学 Linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%A2%83%E7%95%8C"><span class="toc-number">1.2.</span> <span class="toc-text">学习境界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%BA%BF"><span class="toc-number">1.3.</span> <span class="toc-text">路线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">Linux 基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.2.</span> <span class="toc-text">Linux 环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.3.</span> <span class="toc-text">Linux 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">系统信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">系统操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">用户相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">文件相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">程序相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">网络相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.3.3.7.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.4.</span> <span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.5.</span> <span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.6.</span> <span class="toc-text">文本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VIM-%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.3.7.</span> <span class="toc-text">VIM 编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.8.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.9.</span> <span class="toc-text">驱动管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.10.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.3.11.</span> <span class="toc-text">计划任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.12.</span> <span class="toc-text">网络管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.13.</span> <span class="toc-text">系统管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.14.</span> <span class="toc-text">服务管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.15.</span> <span class="toc-text">软件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA"><span class="toc-number">1.3.16.</span> <span class="toc-text">常用软件 &#x2F; 服务搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell-%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B"><span class="toc-number">1.3.17.</span> <span class="toc-text">Shell 脚本编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.18.</span> <span class="toc-text">Linux 启动过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%86%85%E6%A0%B8"><span class="toc-number">1.3.19.</span> <span class="toc-text">Linux 内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.3.20.</span> <span class="toc-text">第三方工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B2%97%E4%BD%8D"><span class="toc-number">1.4.</span> <span class="toc-text">岗位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.5.</span> <span class="toc-text">学习建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90"><span class="toc-number">1.6.</span> <span class="toc-text">资源</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/linux/" title="Linux学习路线"><img src="https://s2.loli.net/2024/01/10/WA5nK3XFC8dIxHf.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux学习路线"/></a><div class="content"><a class="title" href="/post/linux/" title="Linux学习路线">Linux学习路线</a><time datetime="2024-01-10T08:00:00.000Z" title="发表于 2024-01-10 16:00:00">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/html1/" title="Hexo 博客技巧：添加自定义 html 页面"><img src="https://s2.loli.net/2024/01/05/waoLc6vj7BbIlpr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 博客技巧：添加自定义 html 页面"/></a><div class="content"><a class="title" href="/post/html1/" title="Hexo 博客技巧：添加自定义 html 页面">Hexo 博客技巧：添加自定义 html 页面</a><time datetime="2024-01-05T11:00:00.000Z" title="发表于 2024-01-05 19:00:00">2024-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ce/" title="Hexo Butterfly主题美化"><img src="https://s2.loli.net/2023/12/31/jTJlypGQ8t7AILV.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly主题美化"/></a><div class="content"><a class="title" href="/post/ce/" title="Hexo Butterfly主题美化">Hexo Butterfly主题美化</a><time datetime="2023-12-31T14:00:00.000Z" title="发表于 2023-12-31 22:00:00">2023-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/dome/" title="Hexo+GitHub 搭建个人博客"><img src="https://s2.loli.net/2023/12/31/iRfELhMmaVbslzr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+GitHub 搭建个人博客"/></a><div class="content"><a class="title" href="/post/dome/" title="Hexo+GitHub 搭建个人博客">Hexo+GitHub 搭建个人博客</a><time datetime="2023-12-29T14:00:00.000Z" title="发表于 2023-12-29 22:00:00">2023-12-29</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 何子墨</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas> - <script defer src="/js/universe.js"></script><canvas id="universe"></canvas> - <script defer src="/js/universe.js"></script> - <script src="/js/jquery.js"></script> <script src="/js/foot.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="ture" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-haruto"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
