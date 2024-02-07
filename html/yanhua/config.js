@@ -1,4 +1,4 @@
-﻿//坐标
+//坐标
 var Point = function (x, y) {
     this.X = x;
     this.Y = y;
