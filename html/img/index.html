@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60"><!--refresh per 60 seconds-->
+    <title>Seraphine Wall</title>
+    <link href="css/style_PhotoWall.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="variableImage()">
+    <script type="text/javascript">
+        function variableImage(){
+            for(var i = 0;i<12;i++){
+                var NowFrame=parseInt(Math.random()*72);
+                document.getElementById("showImage"+i).src="images/"+NowFrame+".jpg";
+            }
+        }
+    </script>
+    <div>
+
+        <img id="showImage0" width="384" height="216"/>
+        <img id="showImage1" width="576" height="324"/>
+        <img id="showImage2" width="384" height="216"/>
+        <img id="showImage3" width="384" height="216"/>
+        <img id="showImage4" width="576" height="324"/>
+        <img id="showImage5" width="384" height="216"/>
+        <img id="showImage6" width="864" height="486"/>
+        <img id="showImage7" width="576" height="324"/>
+        <img id="showImage8" width="672" height="378"/>
+        <img id="showImage9" width="384" height="216"/>
+        <img id="showImage10" width="576" height="324"/>
+        <img id="showImage11" width="576" height="324"/>
+
+    </div>
+</body>
+</html>
