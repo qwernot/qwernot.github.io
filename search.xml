@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>新搭建Debian配置</title>
+      <link href="/post/debian/"/>
+      <url>/post/debian/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="切换镜像源"><a href="#切换镜像源" class="headerlink" title="切换镜像源"></a>切换镜像源</h2><p>etc&#x2F;apt&#x2F;</p><p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/debian/">debian | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p><h2 id="安装apt-curl"><a href="#安装apt-curl" class="headerlink" title="安装apt curl"></a>安装apt curl</h2><p>[Debian（Linux）系统安装并使用sudo命令 - SpringCore - 博客园 (cnblogs.com)](<a href="https://www.cnblogs.com/fanqisoft/p/17559561.html#:~:text=Debian%EF%BC%88Linux%EF%BC%89%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8sudo%E5%91%BD%E4%BB%A4">https://www.cnblogs.com/fanqisoft/p/17559561.html#:~:text=Debian（Linux）系统安装并使用sudo命令</a> 1.查看是否安装 dpkg -l|grep sudo 2.安装 1.切换到root用户,su - root 2.安装sudo apt-get install sudo)</p><p><a href="https://www.cnblogs.com/cobcmw/p/12616305.html">Debian如何安装curl？ - Cobcmw - 博客园 (cnblogs.com)</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Debian </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Moodle系统，课程数字化</title>
       <link href="/post/moodle/"/>
       <url>/post/moodle/</url>
