@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/post/webstack%E9%83%A8%E7%BD%B2/"/>
+      <url>/post/webstack%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="部署Wordpress"><a href="#部署Wordpress" class="headerlink" title="部署Wordpress"></a>部署Wordpress</h3><p>docker镜像官方地址 <a href="https://hub.docker.com/_/wordpress">wordpress - Official Image | Docker Hub</a></p><p>部署成功后进入 <a href="http://ip+端口/">http://ip+端口/</a> 选择语言进行安装</p><h3 id="webstack主题安装"><a href="#webstack主题安装" class="headerlink" title="webstack主题安装"></a>webstack主题安装</h3><p>进入后台 地址：<a href="http://ip+端口/admin">http://ip+端口/admin</a>  进入后左侧菜单栏 选择-&gt;外观-&gt;主题-&gt;新增主题-&gt;上传主题，将准备好的主题zip文件上传并启用。</p><p>网站基本信息可在后台直接修改，但要修改页面自带的，需要打开主题代码文件进行修改，修改之后重新上传覆盖即可。</p><h3 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h3><p>作者GitHub <a href="https://github.com/owen0o0/WebStack">owen0o0&#x2F;WebStack： WordPress 版 WebStack 导航主题 https://nav.iowen.cn (github.com)</a></p><p>附有使用教程。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>新搭建Debian配置</title>
       <link href="/post/debian/"/>
       <url>/post/debian/</url>
@@ -21,31 +34,6 @@
         <tags>
             
             <tag> Debian </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Moodle系统，课程数字化</title>
-      <link href="/post/moodle/"/>
-      <url>/post/moodle/</url>
-      
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="7d31d76937324f3d1a453c35bb5015f9c62fb0c3ecc1b7adb8536d47f869ed71">1a17762416c8440d80bd7914d00ad07a23b7bf1885975bdb4f8c6bae4401a6b3e4b856f0d5f404945a37e68ecb2597017892fccc0080ba10fe0af38ab5b9ca0744ebe5a83363a4d0cf93092350fbee26a08272bb736470ec082b1d79333aa96e678bfec444cf95657c67c61d79696cbcabf97b571a103d88d1fe1134749acb7639131cbfa1e6bb5ef16e08a139aac11cf28ef53480571f119730ab4ab824a5d220e55daca026c84f27455b4cc0160d8868c49f4368565d29687304ac1f014366c6699ab6eec74362003a4dfbdf2e6565b326a1675bafb9df72b0f5cbd16c90dbe352d80245b09feda87da237f094917d25c891be79794dbe2855f9c1d465e1b85d8ff961a4175a76cf6209cc56fa018de2b97dd79096c93d51a3847f055ce6313dfd368472269b2ccfb7ce7a856f6826e9e090c4782925e43a75f2df58bb5ebcb3772b8dffdd84735645f78710610ce2dbdc8bd4202acfd4366e27a078fd392754517a57d65177fcdc9e3a0ea775751c3ad3b6e7cdbf73fd1ce3b91783d48b4430cb1f90e5a170ec42ab690ae8744d08b7b1038171541c17e0659e8f952139d1fd44248a5bdda65512a6fa6aff84f05b719e411ea54c9225d06ecd1b37b16f57597dd86c5cba0f3096e1a3e78615082d7964c78e3f33ec51786ac92472f7f940321cf665de544b54d75cb6857b04a233bd0955da6fa764b4e1c5df3cce90291610d626404bc3f1064fb70e2f8855f80bc0c71b712cc64de9e1dffba86435d9dca2b9e120101cb58db667f019b4e1b767e9e88b252f358b0ae240c008920ced9f6a85f87e876a81807bb543365f874dccacf78d11b3e914e2288694768c0535567b402b963bed50445ec4699b48842eba8038bae635546d409b8b1076ccafaa19e6ca600c966b57b17826c6aee41e1bde082526da977871984727d9df82902b1e51cbc25b611997cd315d861095875f80b22ccc700edb1d494d295f6b38ed84a20e9b60ec224ee3db1982a35ea40ccd3d925dccb67194b4d6fd9574c95389687248807ed3578ef0308c2d0dead6cfa79338cecdc157605b6569cc081bd6f14e0064e4263806cafe241442baf12b0c3aca209d1372731bb2ee69c10dea115f789d52950ad190af3e9db9c60ee3ca89125b78c7fbd4c6c29a50b384347f1ab7bdba9a2c17b3c9fa575997a0bafbb4e6c4a3768cc3e109629014552bcae6f01ae2160c73927be412c5e4a482b30d0fd68c7f1534f1c2a45eca1ed56cd03ea78fd0e3b1125fd12715c339ac21beb852024357d957b39f9fd3a1ebae54cdd53b0f1359c734ce6b1e1dbcfe91f1cd77c95eb2c976c37f86702a52afbb30838245fc3931b989cf1cbbccdcbd2ede89d96b4ee0947fc97542df85b5050d0f91151fe94e41452de4f95ced0ed930f4a607c943a42453b16cdacfed7b5d120e2ac04367677c48201ad7a788839ef2a9fea8538e3a5108bcdb43d5e19e077ff42f39ce634843e9ad494403ecad3018134b34d78cb487e662c65caa522f33ac9621b2fa04efd558a0f0e9940cfb535b58d2b59c9f395cfd71ec23ce47399d00e08c67bd32886411574fe712a941a63ff52a0ae68bd3d13dd040a9666e4f8cfa6ab35737cc553e5bfba47921c6ff27a5a914ecc211c06fe8f7a430bbeac6b2adcea2e2a7124020f261452fd05ca47cb341a5aa6acb4dbb0982ebe8d483f4d79db23a2a2a22dade5c647a8ce9e99fb8591b486bbe4b6619b1e8e3a8211449aa8ee3b3eb92c7a793842f2b283f76c312755d993128087c11d4435c74f88235def91ac29345d399b7b27b13504552fbe9df4539f83886bfc3a14d9687d99833e898ed9ebb5e2b906c484574be33ff3cd0fd0371e1f07f2403fa687abca78d03633cc56fde4111813b7fd1a337489bb52822c2c2e650bdf134f0fd13e066ea0af293e4bb3e33fa1a2268a685915f8eff232ac82ac418f55bf34bb63224107bfcf5a89c4e042870384a0b50f11f38c0299391c67fd47ec7a1a3bd971a449df289339a2cbf6def5d36f1e7f5bf9e7c8cbec28e0f6405a4d5125f4aa025a7fce9872fadf79b272c09524ca2e948d7ff974625ccbd6974dffa8ce76603a8068a55bb81536f5f17fddd36cf02a158a23815574a9db8af6ff083bb2300d9c2e145285feb7708a3462e10177c830a88cc5182dcacd581cb8ddb912ad3a6351ecb22fbe12ac5bbf3300cec5911c4bb3cc5a6a34ad05d3ab3067abbd290</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      
-      
-      <categories>
-          
-          <category> moodle </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> moodle </tag>
             
         </tags>
       
