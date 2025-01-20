@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>title</title>
+      <link href="/post/%E4%BD%95%E5%AD%90%E5%A2%A8/"/>
+      <url>/post/%E4%BD%95%E5%AD%90%E5%A2%A8/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>test</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/post/Untitled/"/>
       <url>/post/Untitled/</url>
