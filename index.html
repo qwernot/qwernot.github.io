@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>何子墨 - 联系我</title>
-  <meta name="description" content="何子墨的个人联系主页，包含 QQ、微信和邮箱联系方式。">
   <style>
     :root {
       --ink: #17212b;
@@ -114,13 +113,10 @@
     .mark {
       width: 48px;
       height: 48px;
-      display: grid;
-      place-items: center;
       border-radius: 16px;
-      background: #17212b;
-      color: #fff;
-      font-weight: 700;
-      font-size: 21px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 22px rgba(27, 39, 55, 0.16);
     }
 
     .contacts {
@@ -165,9 +161,17 @@
       font-size: 18px;
     }
 
-    .qq .icon { background: var(--blue); }
-    .wechat .icon { background: var(--green); }
-    .mail .icon { background: var(--rose); }
+    .qq .icon {
+      background: var(--blue);
+    }
+
+    .wechat .icon {
+      background: var(--green);
+    }
+
+    .mail .icon {
+      background: var(--rose);
+    }
 
     .label {
       display: block;
@@ -262,7 +266,7 @@
         <p class="summary">你好，这里是我的联系主页。需要找我时，可以直接通过 QQ、微信或邮箱联系。</p>
       </div>
       <div class="signature">
-        <div class="mark" aria-hidden="true">何</div>
+        <img class="mark" src="https://q1.qlogo.cn/g?b=qq&nk=491298200&s=640" alt="何子墨的 QQ 头像">
         <span>He Zimo</span>
       </div>
     </section>
