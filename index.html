@@ -300,10 +300,10 @@
       outline: none;
     }
 
-    .contact:nth-child(1) { animation: fadeUp 0.9s 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(2) { animation: fadeUp 0.9s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(3) { animation: fadeUp 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(4) { animation: fadeUp 0.9s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .contact:nth-child(2) { animation: fadeUp 0.9s 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .contact:nth-child(3) { animation: fadeUp 0.9s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .contact:nth-child(4) { animation: fadeUp 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .contact:nth-child(5) { animation: fadeUp 0.9s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
     .icon {
       width: 52px; height: 52px;
@@ -549,6 +549,13 @@
 
   <!-- 复制微信 -->
   <script>
+    /* 入场动画结束后清除 animation，释放 transform 给 hover */
+    document.querySelectorAll('.contact').forEach(el => {
+      el.addEventListener('animationend', () => {
+        el.style.animation = 'none';
+      }, { once: true });
+    });
+
     const copyButton = document.querySelector("#copyWechat");
     const toast = document.querySelector("#toast");
 
