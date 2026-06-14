@@ -287,6 +287,7 @@
     .qq .contact::before    { background: linear-gradient(135deg, rgba(59,130,246,0.12), transparent); }
     .wechat .contact::before { background: linear-gradient(135deg, rgba(46,204,113,0.12), transparent); }
     .mail .contact::before   { background: linear-gradient(135deg, rgba(244,63,94,0.12), transparent); }
+    .telegram .contact::before { background: linear-gradient(135deg, rgba(0,136,204,0.12), transparent); }
 
     .contact:hover::before,
     .contact:focus-visible::before { opacity: 1; }
@@ -302,6 +303,7 @@
     .contact:nth-child(1) { animation: fadeUp 0.9s 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .contact:nth-child(2) { animation: fadeUp 0.9s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .contact:nth-child(3) { animation: fadeUp 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .contact:nth-child(4) { animation: fadeUp 0.9s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
     .icon {
       width: 52px; height: 52px;
@@ -318,6 +320,7 @@
     .qq .icon    { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 6px 20px rgba(59,130,246,0.35); }
     .wechat .icon { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 6px 20px rgba(46,204,113,0.35); }
     .mail .icon   { background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 6px 20px rgba(244,63,94,0.35); }
+    .telegram .icon { background: linear-gradient(135deg, #0088cc, #006699); box-shadow: 0 6px 20px rgba(0,136,204,0.35); }
 
     .icon svg {
       width: 24px; height: 24px;
@@ -477,6 +480,17 @@
           <span class="value">491298200@qq.com</span>
         </span>
         <span class="action">写邮件 →</span>
+      </a>
+
+      <a class="contact telegram" href="https://t.me/zmswaa" target="_blank" rel="noopener" aria-label="通过 Telegram 联系何子墨">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        </span>
+        <span>
+          <span class="label">Telegram</span>
+          <span class="value">@zmswaa</span>
+        </span>
+        <span class="action">发消息 →</span>
       </a>
 
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
