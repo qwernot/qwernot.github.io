@@ -48,27 +48,27 @@
       pointer-events: none;
     }
 
-    /* ── 渐变光晕 ── */
+    /* ── 渐变光晕（用渐变代替 blur，零性能开销）── */
     body::before,
     body::after {
       content: "";
       position: fixed;
       border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.4;
+      opacity: 0.35;
       z-index: 0;
-      animation: floatBlob 12s ease-in-out infinite alternate;
+      will-change: transform;
+      animation: floatBlob 14s ease-in-out infinite alternate;
     }
     body::before {
       width: 500px; height: 500px;
       top: -120px; left: -100px;
-      background: radial-gradient(circle, var(--accent1), transparent 70%);
+      background: radial-gradient(circle, rgba(102,126,234,0.5) 0%, transparent 70%);
     }
     body::after {
       width: 450px; height: 450px;
       bottom: -100px; right: -80px;
-      background: radial-gradient(circle, var(--accent3), transparent 70%);
-      animation-delay: -6s;
+      background: radial-gradient(circle, rgba(240,147,251,0.45) 0%, transparent 70%);
+      animation-delay: -7s;
     }
 
     @keyframes floatBlob {
@@ -93,11 +93,9 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── 玻璃卡片通用 ── */
+    /* ── 玻璃卡片通用（半透明代替 backdrop-filter）── */
     .intro, .contacts {
-      background: var(--glass);
-      backdrop-filter: blur(24px) saturate(1.4);
-      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      background: rgba(20, 18, 50, 0.72);
       border: 1px solid var(--glass-border);
     }
 
@@ -193,14 +191,13 @@
       position: absolute;
       inset: -3px;
       border-radius: 18px;
-      background: linear-gradient(135deg, var(--accent1), var(--accent3));
-      animation: borderSpin 4s linear infinite;
+      background: conic-gradient(from 0deg, #667eea, #f093fb, #667eea);
+      animation: borderSpin 5s linear infinite;
       z-index: -1;
     }
 
     @keyframes borderSpin {
-      0%   { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
 
     .mark {
@@ -273,7 +270,7 @@
       color: inherit;
       text-decoration: none;
       background: rgba(255,255,255,0.04);
-      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
     }
@@ -488,7 +485,7 @@
 
   <div class="footer">© 2025 何子墨</div>
 
-  <!-- 粒子背景 -->
+  <!-- 粒子背景（轻量优化版） -->
   <script>
     (() => {
       const c = document.getElementById("particles");
@@ -502,43 +499,33 @@
       resize();
       addEventListener("resize", resize);
 
-      const COUNT = Math.min(80, Math.floor(innerWidth * innerHeight / 14000));
+      /* 粒子数减半，去掉连线 */
+      const COUNT = Math.min(40, Math.floor(innerWidth * innerHeight / 28000));
       for (let i = 0; i < COUNT; i++) {
         dots.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          r: Math.random() * 1.6 + 0.6,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.4 + 0.5,
+          o: Math.random() * 0.2 + 0.08,
         });
       }
 
+      /* 降帧：每 2 帧画一次 ≈ 30fps，够流畅且省一半 CPU */
+      let tick = 0;
       function draw() {
+        if (++tick & 1) { requestAnimationFrame(draw); return; }
         ctx.clearRect(0, 0, W, H);
         for (let i = 0; i < dots.length; i++) {
           const a = dots[i];
           a.x += a.vx; a.y += a.vy;
           if (a.x < 0) a.x = W; if (a.x > W) a.x = 0;
           if (a.y < 0) a.y = H; if (a.y > H) a.y = 0;
-
           ctx.beginPath();
-          ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(255,255,255,0.25)";
+          ctx.arc(a.x, a.y, a.r, 0, 6.283);
+          ctx.fillStyle = `rgba(255,255,255,${a.o})`;
           ctx.fill();
-
-          for (let j = i + 1; j < dots.length; j++) {
-            const b = dots[j];
-            const dx = a.x - b.x, dy = a.y - b.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 130) {
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.strokeStyle = `rgba(255,255,255,${0.08 * (1 - dist / 130)})`;
-              ctx.lineWidth = 0.6;
-              ctx.stroke();
-            }
-          }
         }
         requestAnimationFrame(draw);
       }
