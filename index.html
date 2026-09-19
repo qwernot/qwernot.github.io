@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>何子墨 · 个人主页 | 666228.xyz</title>
-  <meta name="description" content="何子墨的个人主页：CMSingBox（Sing-box 可视化管理平台）、Cosmo Mail（多邮箱统一管理平台）、SwiCV Shop 数字商品商店，以及联系方式。">
+  <meta name="description" content="何子墨的个人主页：CMSingBox（Sing-box 可视化管理平台）、Cosmo Mail（多邮箱统一管理平台）、Cosmo NPS（内网穿透平台）、SwiCV Shop 数字商品商店，以及联系方式。">
   <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&nk=491298200&s=100">
   <style>
     :root {
@@ -398,12 +398,19 @@
       box-shadow: 0 6px 20px rgba(46,204,113,0.35);
     }
 
+    .project.nps .p-icon {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      box-shadow: 0 6px 20px rgba(56,189,248,0.35);
+    }
+
     .project.cm::before { --halo: rgba(102,126,234,0.22); }
     .project.cosmo::before { --halo: rgba(139,92,246,0.22); }
     .project.shop::before { --halo: rgba(46,204,113,0.2); }
+    .project.nps::before { --halo: rgba(56,189,248,0.2); }
 
-    /* 商店横幅卡：占满整行，横向布局 */
-    .project.shop {
+    /* 通栏横幅卡：占满整行，横向布局 */
+    .project.shop,
+    .project.nps {
       grid-column: 1 / -1;
       flex-direction: row;
       align-items: flex-start;
@@ -411,13 +418,17 @@
       flex-wrap: wrap;
     }
 
-    .project.shop .project-top { flex: 0 0 auto; }
+    .project.shop .project-top,
+    .project.nps .project-top { flex: 0 0 auto; }
 
-    .project.shop .p-body { flex: 1 1 340px; }
+    .project.shop .p-body,
+    .project.nps .p-body { flex: 1 1 340px; }
 
-    .project.shop .p-desc { margin-top: 0; }
+    .project.shop .p-desc,
+    .project.nps .p-desc { margin-top: 0; }
 
-    .project.shop .p-actions {
+    .project.shop .p-actions,
+    .project.nps .p-actions {
       margin-top: 18px;
       padding-top: 0;
       border-top: none;
@@ -425,12 +436,8 @@
       align-self: center;
     }
 
-    .project.shop .chips { margin-top: 14px; }
-
-    .project.shop .p-icon {
-      background: linear-gradient(135deg, #2ecc71, #16a085);
-      box-shadow: 0 6px 20px rgba(46,204,113,0.35);
-    }
+    .project.shop .chips,
+    .project.nps .chips { margin-top: 14px; }
 
     .p-name {
       color: #fff;
@@ -654,9 +661,11 @@
 
       .projects, .contacts { grid-template-columns: 1fr; }
 
-      .project.shop { flex-direction: column; gap: 0; }
+      .project.shop,
+      .project.nps { flex-direction: column; gap: 0; }
 
-      .project.shop .p-body { flex: 0 0 auto; margin-top: 20px; }
+      .project.shop .p-body,
+      .project.nps .p-body { flex: 0 0 auto; margin-top: 20px; }
 
       .topnav a:not(.keep) { display: none; }
 
@@ -694,7 +703,7 @@
       <div>
         <div class="tag">✦ 个人主页 / 666228.xyz</div>
         <h1>何子墨 <span class="wave">👋</span></h1>
-        <p class="summary">你好，欢迎来到我的主页。这里汇集了我的项目、在线商店与联系方式，点开即可直达。</p>
+        <p class="summary">你好，欢迎来到我的主页。这里汇集了我的项目、在线服务与联系方式，点开即可直达。</p>
         <div class="hero-actions">
           <a class="btn primary" href="#projects">查看项目 ↓</a>
           <a class="btn" href="#contact">联系我</a>
@@ -714,9 +723,9 @@
     <!-- 项目 -->
     <section class="section reveal" id="projects" aria-label="开源项目">
       <div class="section-heading">
-        <div class="eyebrow">— Projects &amp; Shop —</div>
-        <h2>项目与商店</h2>
-        <p>两个自托管工具与一个在线商店，工具的配套中文文档都在本站内。</p>
+        <div class="eyebrow">— Projects &amp; Services —</div>
+        <h2>项目与服务</h2>
+        <p>两个自托管工具、一个内网穿透平台和一个在线商店，工具的配套中文文档都在本站内。</p>
       </div>
 
       <div class="projects">
@@ -799,6 +808,32 @@
           </div>
           <a class="card-link" href="https://shop.swicv.com" target="_blank" rel="noopener" aria-label="进入 SwiCV Shop 数字商品商店"></a>
         </article>
+
+        <article class="project nps">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+            </span>
+            <div>
+              <div class="p-name">Cosmo NPS</div>
+              <div class="p-sub">自建内网穿透平台 · nps.swicv.com</div>
+            </div>
+          </div>
+          <div class="p-body">
+            <p class="p-desc">没有公网 IP 也能把内网设备和业务映射到公网：多类型隧道、带宽与流量管理，配 Web 控制台，客户端支持 Docker 一键部署。</p>
+            <div class="chips">
+              <span class="chip">内网穿透</span>
+              <span class="chip">多类型隧道</span>
+              <span class="chip">Web 控制台</span>
+              <span class="chip">Docker 客户端</span>
+              <span class="chip">带宽管理</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">进入控制台 →</span>
+          </div>
+          <a class="card-link" href="https://nps.swicv.com" target="_blank" rel="noopener" aria-label="进入 Cosmo NPS 内网穿透控制台"></a>
+        </article>
       </div>
     </section>
 
@@ -860,7 +895,7 @@
     </section>
 
     <footer class="footer">
-      © 2026 何子墨 · <a href="/">666228.xyz</a> · <a href="/CM/">CMSingBox</a> · <a href="/Cosmomail/">Cosmo Mail</a> · <a href="https://shop.swicv.com" target="_blank" rel="noopener">SwiCV Shop</a>
+      © 2026 何子墨 · <a href="/">666228.xyz</a> · <a href="/CM/">CMSingBox</a> · <a href="/Cosmomail/">Cosmo Mail</a> · <a href="https://nps.swicv.com" target="_blank" rel="noopener">Cosmo NPS</a> · <a href="https://shop.swicv.com" target="_blank" rel="noopener">SwiCV Shop</a>
     </footer>
   </div>
 
