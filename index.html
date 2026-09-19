@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>何子墨 - 联系我</title>
+  <title>何子墨 · 个人主页 | 666228.xyz</title>
+  <meta name="description" content="何子墨的个人主页：CMSingBox（Sing-box 可视化管理平台）、Cosmo Mail（多邮箱统一管理平台）、SwiCV Shop 数字商品商店，以及联系方式。">
   <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&nk=491298200&s=100">
   <style>
     :root {
       --ink: #1a1a2e;
-      --muted: #6b7b8d;
       --line: rgba(255, 255, 255, 0.08);
-      --glass: rgba(255, 255, 255, 0.06);
+      --glass: rgba(255, 255, 255, 0.04);
       --glass-border: rgba(255, 255, 255, 0.12);
       --accent1: #667eea;
       --accent2: #764ba2;
@@ -18,13 +18,14 @@
       --green: #2ecc71;
       --blue: #3b82f6;
       --rose: #f43f5e;
+      --violet: #8b5cf6;
       --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      min-height: 100%;
+      scroll-behavior: smooth;
       font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
       color: var(--ink);
     }
@@ -32,15 +33,11 @@
     body {
       min-height: 100vh;
       margin: 0;
-      display: grid;
-      place-items: center;
-      padding: 28px;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       overflow-x: hidden;
       position: relative;
     }
 
-    /* ── 粒子画布 ── */
     #particles {
       position: fixed;
       inset: 0;
@@ -48,7 +45,6 @@
       pointer-events: none;
     }
 
-    /* ── 渐变光晕（用渐变代替 blur，零性能开销）── */
     body::before,
     body::after {
       content: "";
@@ -76,54 +72,100 @@
       100% { transform: translate(60px, 40px) scale(1.15); }
     }
 
-    /* ── 主容器 ── */
-    main {
-      position: relative;
-      z-index: 1;
-      width: min(1000px, 100%);
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 0;
-      align-items: stretch;
-      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── 玻璃卡片通用（半透明代替 backdrop-filter）── */
-    .intro, .contacts {
-      background: rgba(20, 18, 50, 0.72);
+    ::selection { background: rgba(102,126,234,0.5); color: #fff; }
+
+    /* ── 顶部导航 ── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(15, 12, 41, 0.97);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topinner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 28px; height: 28px;
+      border-radius: 8px;
       border: 1px solid var(--glass-border);
     }
 
-    /* ── 左侧介绍 ── */
-    .intro {
-      min-height: 540px;
-      padding: 48px 44px;
+    .brand .domain { color: rgba(255,255,255,0.45); font-weight: 500; }
+
+    .topnav {
+      margin-left: auto;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 24px 0 0 24px;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .topnav a {
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.25s ease, background 0.25s ease;
+    }
+
+    .topnav a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .topnav a.gh {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .topnav a.gh svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── 布局 ── */
+    .wrap {
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 100px 24px 60px;
     }
 
-    .intro::before {
-      content: "";
-      position: absolute;
-      top: -50%; right: -40%;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(102,126,234,0.18), rgba(240,147,251,0.14));
-      animation: pulse 6s ease-in-out infinite alternate;
-    }
+    section { scroll-margin-top: 76px; }
 
-    @keyframes pulse {
-      0%   { transform: scale(1); opacity: 0.6; }
-      100% { transform: scale(1.25); opacity: 1; }
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     .tag {
@@ -135,16 +177,14 @@
       font-size: 13px;
       letter-spacing: 1px;
       background: rgba(255,255,255,0.05);
-      animation: fadeUp 0.9s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     h1 {
-      margin: 36px 0 18px;
+      margin: 26px 0 16px;
       font-size: clamp(42px, 7vw, 72px);
       line-height: 1.05;
       font-weight: 800;
       color: #fff;
-      animation: fadeUp 0.9s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     h1 .wave {
@@ -164,60 +204,82 @@
     }
 
     .summary {
-      max-width: 420px;
+      max-width: 460px;
       color: rgba(255,255,255,0.55);
       font-size: 16px;
       line-height: 1.9;
-      animation: fadeUp 0.9s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
-    /* ── 头像签名 ── */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(102,126,234,0.4);
+    }
+
+    .btn.primary:hover { box-shadow: 0 14px 36px rgba(102,126,234,0.55); }
+
     .signature {
-      position: relative;
-      z-index: 1;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 16px;
-      animation: fadeUp 0.9s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
-    .avatar-wrap {
-      position: relative;
-      width: 56px; height: 56px;
-    }
+    .avatar-wrap { position: relative; width: 72px; height: 72px; }
 
     .avatar-wrap::before {
       content: "";
       position: absolute;
       inset: -3px;
-      border-radius: 18px;
+      border-radius: 22px;
       background: conic-gradient(from 0deg, #667eea, #f093fb, #667eea);
       animation: borderSpin 5s linear infinite;
       z-index: -1;
     }
 
-    @keyframes borderSpin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes borderSpin { to { transform: rotate(360deg); } }
 
     .mark {
-      width: 56px; height: 56px;
-      border-radius: 16px;
+      width: 72px; height: 72px;
+      border-radius: 20px;
       object-fit: cover;
       border: 2px solid rgba(0,0,0,0.3);
+      display: block;
     }
 
-    .sig-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .sig-info { display: flex; flex-direction: column; gap: 3px; }
 
-    .sig-name {
-      color: rgba(255,255,255,0.85);
-      font-size: 15px;
-      font-weight: 600;
-    }
+    .sig-name { color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 600; }
 
     .sig-status {
       display: flex;
@@ -235,31 +297,219 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%      { opacity: 0.3; }
-    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    /* ── 右侧联系卡片 ── */
-    .contacts {
-      padding: 28px 24px;
-      border-radius: 0 24px 24px 0;
-      display: grid;
-      gap: 16px;
-      align-content: center;
-    }
+    /* ── 区块标题 ── */
+    .section { margin-top: 88px; }
 
-    .contacts-title {
+    .section-heading { margin-bottom: 28px; }
+
+    .section-heading .eyebrow {
       color: rgba(255,255,255,0.35);
       font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 0 4px 4px;
-      animation: fadeUp 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+      color: #fff;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ── 项目卡片 ── */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      padding: 32px 28px;
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      background: rgba(20, 18, 50, 0.72);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      top: -60%; right: -30%;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      opacity: 0.5;
+      background: radial-gradient(circle, var(--halo, rgba(102,126,234,0.22)) 0%, transparent 70%);
+      transition: opacity 0.35s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.35);
+    }
+
+    .project:hover::before { opacity: 1; }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p-icon {
+      width: 52px; height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .p-icon svg { width: 26px; height: 26px; fill: currentColor; }
+
+    .project.cm .p-icon {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+    }
+
+    .project.cosmo .p-icon {
+      background: linear-gradient(135deg, var(--violet), var(--accent3));
+      box-shadow: 0 6px 20px rgba(139,92,246,0.4);
+    }
+
+    .project.shop .p-icon {
+      background: linear-gradient(135deg, #2ecc71, #16a085);
+      box-shadow: 0 6px 20px rgba(46,204,113,0.35);
+    }
+
+    .project.cm::before { --halo: rgba(102,126,234,0.22); }
+    .project.cosmo::before { --halo: rgba(139,92,246,0.22); }
+    .project.shop::before { --halo: rgba(46,204,113,0.2); }
+
+    /* 商店横幅卡：占满整行，横向布局 */
+    .project.shop {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .project.shop .project-top { flex: 0 0 auto; }
+
+    .project.shop .p-body { flex: 1 1 340px; }
+
+    .project.shop .p-desc { margin-top: 0; }
+
+    .project.shop .p-actions {
+      margin-top: 18px;
+      padding-top: 0;
+      border-top: none;
+      flex: 0 0 auto;
+      align-self: center;
+    }
+
+    .project.shop .chips { margin-top: 14px; }
+
+    .project.shop .p-icon {
+      background: linear-gradient(135deg, #2ecc71, #16a085);
+      box-shadow: 0 6px 20px rgba(46,204,113,0.35);
+    }
+
+    .p-name {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .p-sub {
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .p-desc {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.55);
+      font-size: 14.5px;
+      line-height: 1.9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chip {
+      padding: 6px 12px;
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.6);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .p-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    .p-actions .btn { padding: 10px 18px; font-size: 14px; }
+
+    .p-actions .spacer { flex: 1; }
+
+    /* 拉伸链接：整卡可点进文档，GitHub 按钮浮在其上单独可点 */
+    .card-link {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      z-index: 2;
+    }
+
+    .p-actions .btn.gh-link {
+      position: relative;
+      z-index: 3;
+      pointer-events: auto;
+    }
+
+    /* ── 联系方式 ── */
+    .contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
 
     .contact {
-      min-height: 100px;
+      min-height: 96px;
       display: grid;
       grid-template-columns: 52px 1fr auto;
       gap: 16px;
@@ -267,12 +517,15 @@
       padding: 18px 20px;
       border: 1px solid var(--glass-border);
       border-radius: 16px;
-      color: inherit;
-      text-decoration: none;
       background: rgba(255,255,255,0.04);
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .contact::before {
@@ -300,11 +553,6 @@
       outline: none;
     }
 
-    .contact:nth-child(2) { animation: fadeUp 0.9s 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(3) { animation: fadeUp 0.9s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(4) { animation: fadeUp 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .contact:nth-child(5) { animation: fadeUp 0.9s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
-
     .icon {
       width: 52px; height: 52px;
       display: grid;
@@ -317,15 +565,12 @@
       z-index: 1;
     }
 
+    .icon svg { width: 24px; height: 24px; fill: currentColor; }
+
     .contact.qq .icon      { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 6px 20px rgba(59,130,246,0.35); }
     .contact.wechat .icon  { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 6px 20px rgba(46,204,113,0.35); }
     .contact.mail .icon    { background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 6px 20px rgba(244,63,94,0.35); }
     .contact.telegram .icon { background: linear-gradient(135deg, #0088cc, #006699); box-shadow: 0 6px 20px rgba(0,136,204,0.35); }
-
-    .icon svg {
-      width: 24px; height: 24px;
-      fill: currentColor;
-    }
 
     .label {
       display: block;
@@ -339,7 +584,7 @@
     .value {
       display: block;
       overflow-wrap: anywhere;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       color: rgba(255,255,255,0.9);
       position: relative;
@@ -365,16 +610,9 @@
       border-color: rgba(255,255,255,0.2);
     }
 
-    button.contact {
-      width: 100%;
-      cursor: pointer;
-      font: inherit;
-      text-align: left;
-    }
-
     .toast {
-      min-height: 22px;
-      margin: 2px 6px 0;
+      min-height: 20px;
+      margin-top: 10px;
       color: var(--green);
       font-size: 13px;
       text-align: right;
@@ -383,57 +621,84 @@
 
     /* ── 页脚 ── */
     .footer {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.2);
-      font-size: 12px;
-      z-index: 1;
+      border-top: 1px solid var(--line);
+      margin-top: 88px;
+      padding: 26px 24px 34px;
+      text-align: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 12.5px;
       letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
     }
 
+    .footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── 滚动入场 ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
     /* ── 响应式 ── */
-    @media (max-width: 820px) {
-      body { padding: 16px; place-items: start center; }
+    @media (max-width: 860px) {
+      .wrap { padding: 84px 16px 48px; }
 
-      main { grid-template-columns: 1fr; }
+      .hero { flex-direction: column; align-items: flex-start; gap: 26px; }
 
-      .intro, .contacts { border-radius: 20px; }
+      .signature { order: -1; }
 
-      .intro {
-        min-height: 340px;
-        padding: 32px 28px;
-      }
+      .projects, .contacts { grid-template-columns: 1fr; }
 
-      h1 { margin-top: 28px; font-size: clamp(36px, 10vw, 52px); }
+      .project.shop { flex-direction: column; gap: 0; }
 
-      .contacts { padding: 20px 16px; border-radius: 20px; margin-top: 0; }
+      .project.shop .p-body { flex: 0 0 auto; margin-top: 20px; }
 
-      .contact {
-        grid-template-columns: 46px 1fr;
-        min-height: 90px;
-      }
+      .topnav a:not(.keep) { display: none; }
 
-      .icon { width: 46px; height: 46px; }
-      .icon svg { width: 20px; height: 20px; }
+      .brand .domain { display: none; }
 
-      .action { grid-column: 2; width: fit-content; }
+      .topnav a { padding: 8px 10px; }
 
-      body::before { width: 300px; height: 300px; }
-      body::after  { width: 250px; height: 250px; }
+      h1 { margin-top: 20px; }
     }
   </style>
 </head>
 <body>
-  <canvas id="particles"></canvas>
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-  <main aria-label="何子墨的个人联系主页">
-    <section class="intro">
+  <header class="topbar">
+    <div class="topinner">
+      <a class="brand" href="/">
+        <img src="https://q1.qlogo.cn/g?b=qq&nk=491298200&s=100" alt="">
+        <span>何子墨 <span class="domain">· 666228.xyz</span></span>
+      </a>
+      <nav class="topnav" aria-label="站内导航">
+        <a class="keep" href="#projects">项目</a>
+        <a class="keep" href="#contact">联系我</a>
+        <a class="gh" href="https://github.com/qwernot" target="_blank" rel="noopener" aria-label="GitHub 主页">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- Hero -->
+    <section class="hero" aria-label="何子墨的个人主页">
       <div>
-        <div class="tag">✦ 个人主页 / Contact</div>
+        <div class="tag">✦ 个人主页 / 666228.xyz</div>
         <h1>何子墨 <span class="wave">👋</span></h1>
-        <p class="summary">你好，欢迎来到我的主页。需要找我时，可以直接通过下方的方式联系我。</p>
+        <p class="summary">你好，欢迎来到我的主页。这里汇集了我的项目、在线商店与联系方式，点开即可直达。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">查看项目 ↓</a>
+          <a class="btn" href="#contact">联系我</a>
+        </div>
       </div>
       <div class="signature">
         <div class="avatar-wrap">
@@ -446,61 +711,161 @@
       </div>
     </section>
 
-    <section class="contacts" aria-label="联系方式">
-      <div class="contacts-title">— 联系方式 —</div>
+    <!-- 项目 -->
+    <section class="section reveal" id="projects" aria-label="开源项目">
+      <div class="section-heading">
+        <div class="eyebrow">— Projects &amp; Shop —</div>
+        <h2>项目与商店</h2>
+        <p>两个自托管工具与一个在线商店，工具的配套中文文档都在本站内。</p>
+      </div>
 
-      <a class="contact qq" href="tencent://message/?uin=491298200&Site=&Menu=yes" aria-label="通过 QQ 联系何子墨">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2v1h-4V7c0-1.1.9-2 2-2zm-4 9.5c0-.28.22-.5.5-.5h1V12h-1a2.5 2.5 0 0 0 0 5h1v-2h-1c-.28 0-.5-.22-.5-.5zm8 0c0 .28-.22.5-.5.5h-1v2h1a2.5 2.5 0 0 0 0-5h-1v2h1c.28 0 .5.22.5.5zM13 14h-2v-2h2v2z"/></svg>
-        </span>
-        <span>
-          <span class="label">QQ</span>
-          <span class="value">491298200</span>
-        </span>
-        <span class="action">发消息 →</span>
-      </a>
+      <div class="projects">
+        <article class="project cm">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 4.2V18h16V8.2l-8 5-8-5zM4.9 6l7.1 4.4L19.1 6H4.9z"/></svg>
+            </span>
+            <div>
+              <div class="p-name">CMSingBox</div>
+              <div class="p-sub">Sing-box 可视化管理平台</div>
+            </div>
+          </div>
+          <p class="p-desc">在浏览器中完成订阅、节点、分流规则、DNS、透明代理和运行维护。支持 Linux 原生、Docker Compose、RouterOS 容器及多种主路由分流方案。</p>
+          <div class="chips">
+            <span class="chip">订阅管理</span>
+            <span class="chip">可视化分流</span>
+            <span class="chip">DNS 分流</span>
+            <span class="chip">多路由器支持</span>
+            <span class="chip">回家服务</span>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">文档中心 →</span>
+            <span class="spacer"></span>
+            <a class="btn gh-link" href="https://github.com/qwernot/CM" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <a class="card-link" href="/CM/" aria-label="打开 CMSingBox 文档"></a>
+        </article>
 
-      <button class="contact wechat" type="button" id="copyWechat" aria-label="复制微信号 HT-T-TH">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8.5 2C4.36 2 1 5.13 1 9c0 2.38 1.19 4.47 3 5.74V19l3.28-2.05c.4.05.81.05 1.22.05 4.14 0 7.5-3.13 7.5-7S12.64 2 8.5 2zm8 8c-.28 0-.55.02-.82.05C16.72 11.2 18 13.43 18 16c0 3.31-2.69 6-6 6-.34 0-.67-.03-1-.08L8 24v-3.26C5.36 19.28 3.5 16.82 3.5 14h.01c0-.34.03-.67.08-1C2.22 14.18 1 15.95 1 18c0 2.38 1.19 4.47 3 5.74V24l3.28-2.05c.4.05.81.05 1.22.05C12.64 22 16 18.87 16 15c0-1.72-.59-3.3-1.58-4.55A5.97 5.97 0 0 1 16.5 10z"/></svg>
-        </span>
-        <span>
-          <span class="label">微信</span>
-          <span class="value">HT-T-TH</span>
-        </span>
-        <span class="action">复制</span>
-      </button>
+        <article class="project cosmo">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 3.9 3.1 7 7 7s7-3.1 7-7a7 7 0 0 0-7-7zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-2 3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM5 16.5c-1.9 1-3 2.4-3 4v1.5h20V20.5c0-1.6-1.1-3-3-4-1.9 1.6-4.4 2.5-7 2.5s-5.1-.9-7-2.5z"/></svg>
+            </span>
+            <div>
+              <div class="p-name">Cosmo Mail</div>
+              <div class="p-sub">自托管多邮箱统一收件箱</div>
+            </div>
+          </div>
+          <p class="p-desc">所有邮箱，一处抵达。在一个界面管理 QQ、Outlook、Gmail、163 等标准 IMAP 邮箱，单文件运行，数据完全留在自己的服务器上。</p>
+          <div class="chips">
+            <span class="chip">多邮箱归一</span>
+            <span class="chip">增量收信 IDLE</span>
+            <span class="chip">单文件运行</span>
+            <span class="chip">数据自主</span>
+            <span class="chip">Webhook 通知</span>
+            <span class="chip">全端 PWA</span>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">文档中心 →</span>
+            <span class="spacer"></span>
+            <a class="btn gh-link" href="https://github.com/qwernot/Cosmomail" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <a class="card-link" href="/Cosmomail/" aria-label="打开 Cosmo Mail 文档"></a>
+        </article>
 
-      <a class="contact mail" href="mailto:491298200@qq.com?subject=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%BD%95%E5%AD%90%E5%A2%A8" aria-label="给何子墨发送邮件">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </span>
-        <span>
-          <span class="label">邮箱</span>
-          <span class="value">491298200@qq.com</span>
-        </span>
-        <span class="action">写邮件 →</span>
-      </a>
+        <article class="project shop">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 7V6a5 5 0 1 1 10 0v1h4v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7h4zm2 0h6V6a3 3 0 1 0-6 0v1zM7 9H5v11h14V9h-2v2a1 1 0 1 1-2 0V9H9v2a1 1 0 1 1-2 0V9z"/></svg>
+            </span>
+            <div>
+              <div class="p-name">SwiCV Shop</div>
+              <div class="p-sub">数字商品自动发货平台 · shop.swicv.com</div>
+            </div>
+          </div>
+          <div class="p-body">
+            <p class="p-desc">买卡密、充值、会员：游戏点卡、流媒体会员、软件授权、礼品卡、AI 工具 —— 付款后自动发货，凭证立即送达。</p>
+            <div class="chips">
+              <span class="chip">卡密自动发货</span>
+              <span class="chip">游戏点卡</span>
+              <span class="chip">流媒体会员</span>
+              <span class="chip">软件授权</span>
+              <span class="chip">礼品卡</span>
+              <span class="chip">AI 工具</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">进入商店 →</span>
+          </div>
+          <a class="card-link" href="https://shop.swicv.com" target="_blank" rel="noopener" aria-label="进入 SwiCV Shop 数字商品商店"></a>
+        </article>
+      </div>
+    </section>
 
-      <a class="contact telegram" href="https://t.me/zmswaa" target="_blank" rel="noopener" aria-label="通过 Telegram 联系何子墨">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-        </span>
-        <span>
-          <span class="label">Telegram</span>
-          <span class="value">@zmswaa</span>
-        </span>
-        <span class="action">发消息 →</span>
-      </a>
+    <!-- 联系方式 -->
+    <section class="section reveal" id="contact" aria-label="联系方式">
+      <div class="section-heading">
+        <div class="eyebrow">— Contact —</div>
+        <h2>联系我</h2>
+        <p>需要找我时，可以通过下面任意方式。</p>
+      </div>
+
+      <div class="contacts">
+        <a class="contact qq" href="tencent://message/?uin=491298200&Site=&Menu=yes" aria-label="通过 QQ 联系何子墨">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2v1h-4V7c0-1.1.9-2 2-2zm-4 9.5c0-.28.22-.5.5-.5h1V12h-1a2.5 2.5 0 0 0 0 5h1v-2h-1c-.28 0-.5-.22-.5-.5zm8 0c0 .28-.22.5-.5.5h-1v2h1a2.5 2.5 0 0 0 0-5h-1v2h1c.28 0 .5.22.5.5zM13 14h-2v-2h2v2z"/></svg>
+          </span>
+          <span>
+            <span class="label">QQ</span>
+            <span class="value">491298200</span>
+          </span>
+          <span class="action">发消息 →</span>
+        </a>
+
+        <button class="contact wechat" type="button" id="copyWechat" aria-label="复制微信号 HT-T-TH">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8.5 2C4.36 2 1 5.13 1 9c0 2.38 1.19 4.47 3 5.74V19l3.28-2.05c.4.05.81.05 1.22.05 4.14 0 7.5-3.13 7.5-7S12.64 2 8.5 2zm8 8c-.28 0-.55.02-.82.05C16.72 11.2 18 13.43 18 16c0 3.31-2.69 6-6 6-.34 0-.67-.03-1-.08L8 24v-3.26C5.36 19.28 3.5 16.82 3.5 14h.01c0-.34.03-.67.08-1C2.22 14.18 1 15.95 1 18c0 2.38 1.19 4.47 3 5.74V24l3.28-2.05c.4.05.81.05 1.22.05C12.64 22 16 18.87 16 15c0-1.72-.59-3.3-1.58-4.55A5.97 5.97 0 0 1 16.5 10z"/></svg>
+          </span>
+          <span>
+            <span class="label">微信</span>
+            <span class="value">HT-T-TH</span>
+          </span>
+          <span class="action">复制</span>
+        </button>
+
+        <a class="contact mail" href="mailto:491298200@qq.com?subject=%E4%BD%A0%E5%A5%BD" aria-label="给何子墨发送邮件">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+          <span>
+            <span class="label">邮箱</span>
+            <span class="value">491298200@qq.com</span>
+          </span>
+          <span class="action">写邮件 →</span>
+        </a>
+
+        <a class="contact telegram" href="https://t.me/zmswaa" target="_blank" rel="noopener" aria-label="通过 Telegram 联系何子墨">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </span>
+          <span>
+            <span class="label">Telegram</span>
+            <span class="value">@zmswaa</span>
+          </span>
+          <span class="action">发消息 →</span>
+        </a>
+      </div>
 
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
     </section>
-  </main>
 
-  <div class="footer">© 2026 何子墨</div>
+    <footer class="footer">
+      © 2026 何子墨 · <a href="/">666228.xyz</a> · <a href="/CM/">CMSingBox</a> · <a href="/Cosmomail/">Cosmo Mail</a> · <a href="https://shop.swicv.com" target="_blank" rel="noopener">SwiCV Shop</a>
+    </footer>
+  </div>
 
-  <!-- 粒子背景（轻量优化版） -->
   <script>
+    // 粒子背景（轻量版）
     (() => {
       const c = document.getElementById("particles");
       const ctx = c.getContext("2d");
@@ -513,7 +878,6 @@
       resize();
       addEventListener("resize", resize);
 
-      /* 粒子数减半，去掉连线 */
       const COUNT = Math.min(40, Math.floor(innerWidth * innerHeight / 28000));
       for (let i = 0; i < COUNT; i++) {
         dots.push({
@@ -526,7 +890,7 @@
         });
       }
 
-      /* 降帧：每 2 帧画一次 ≈ 30fps，够流畅且省一半 CPU */
+      // 每 2 帧画一次 ≈ 30fps，省一半 CPU
       let tick = 0;
       function draw() {
         if (++tick & 1) { requestAnimationFrame(draw); return; }
@@ -545,29 +909,31 @@
       }
       draw();
     })();
-  </script>
 
-  <!-- 复制微信 -->
-  <script>
-    /* 入场动画结束后清除 animation，释放 transform 给 hover */
-    document.querySelectorAll('.contact').forEach(el => {
-      el.addEventListener('animationend', () => {
-        el.style.animation = 'none';
-      }, { once: true });
-    });
+    // 滚动入场
+    (() => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    })();
 
-    const copyButton = document.querySelector("#copyWechat");
-    const toast = document.querySelector("#toast");
-
-    copyButton.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText("HT-T-TH");
-        toast.textContent = "✓ 微信号已复制";
-      } catch {
-        toast.textContent = "微信号：HT-T-TH";
-      }
-      setTimeout(() => { toast.textContent = ""; }, 2200);
-    });
+    // 复制微信
+    (() => {
+      const btn = document.getElementById("copyWechat");
+      const toast = document.getElementById("toast");
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("HT-T-TH");
+          toast.textContent = "✓ 微信号已复制";
+        } catch {
+          toast.textContent = "微信号：HT-T-TH";
+        }
+        setTimeout(() => { toast.textContent = ""; }, 2200);
+      });
+    })();
   </script>
 </body>
 </html>
