@@ -1,1838 +1,1352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>何子墨 · 个人主页 | 666228.xyz</title>
-  <meta name="description" content="何子墨的个人主页与技术导航：精选开源自托管工具 CMSingBox（Sing-box 可视化平台）、Cosmo Mail（统一收件箱）、Cosmo NPS（内网穿透）及 SwiCV Shop 数字商店，包含配套文档与联系方式。">
-  <meta name="keywords" content="何子墨, 666228.xyz, CMSingBox, Cosmo Mail, Cosmo NPS, SwiCV Shop, 内网穿透, Sing-box, 个人主页, 导航">
-  <meta name="author" content="何子墨">
-  
-  <!-- OpenGraph / Social Meta -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="何子墨 · 个人主页 | 666228.xyz">
-  <meta property="og:description" content="何子墨的个人主页：CMSingBox、Cosmo Mail、Cosmo NPS 与 SwiCV Shop，直达自建服务与项目文档。">
-  <meta property="og:url" content="https://666228.xyz">
-  <meta property="og:image" content="https://666228.xyz/avatar.png">
-  <meta name="theme-color" content="#0b0b14">
-
-  <!-- Favicon -->
+  <meta name="description" content="何子墨的个人主页：CMSingBox（Sing-box 可视化管理平台）、Cosmo Mail（多邮箱统一管理平台）、Cosmo NPS（内网穿透平台）、SwiCV Shop 数字商品商店，以及联系方式。">
   <link rel="icon" href="/avatar.png" type="image/png">
   <link rel="apple-touch-icon" href="/avatar.png">
-
   <style>
     /* ============================================================
-       0. CSS 变量与设计系统 (Design Tokens)
+       Apple Dynamic Desktop / Liquid Glass Design System
+       苹果原生液态毛玻璃与昼夜动态桌面系统（精修旗舰版）
        ============================================================ */
     :root {
-      --bg: #07070d;
-      --bg-surface: rgba(18, 18, 30, 0.65);
-      --bg-surface-hover: rgba(26, 26, 44, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(255, 255, 255, 0.2);
+      --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono-font: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
       
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      
-      --primary: #6366f1;
-      --primary-glow: rgba(99, 102, 241, 0.35);
-      --purple: #8b5cf6;
-      --fuchsia: #d946ef;
-      --cyan: #06b6d4;
-      --emerald: #10b981;
-      --rose: #f43f5e;
-      --amber: #f59e0b;
+      /* ── 默认黑夜模式 (macOS Dark Glass) ── */
+      --bg-color: #07090f;
+      --mesh-1: rgba(94, 92, 230, 0.35);
+      --mesh-2: rgba(191, 90, 242, 0.28);
+      --mesh-3: rgba(10, 132, 255, 0.22);
+      --mesh-4: rgba(48, 209, 88, 0.18);
+      --mesh-5: rgba(100, 210, 255, 0.2);
 
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-full: 9999px;
+      --orb-opacity: 0.35;
+      --sheen-color: rgba(255, 255, 255, 0.14);
 
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      --mono-stack: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      
-      --shadow-card: 0 12px 36px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-subtle);
-      --shadow-glow: 0 0 35px -5px var(--primary-glow);
+      --topbar-bg: rgba(16, 20, 32, 0.65);
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-bg-hover: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.16);
+      --glass-border-hover: rgba(255, 255, 255, 0.3);
+      --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+      --glass-highlight-hover: inset 0 1px 2px 0 rgba(255, 255, 255, 0.45);
+      --glass-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+      --glass-shadow-hover: 0 30px 65px -10px rgba(0, 0, 0, 0.48), 0 4px 14px rgba(0, 0, 0, 0.25);
+
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.74);
+      --text-tertiary: rgba(255, 255, 255, 0.46);
+      --tag-color: rgba(255, 255, 255, 0.88);
+
+      --chip-bg: rgba(255, 255, 255, 0.06);
+      --chip-bg-hover: rgba(255, 255, 255, 0.12);
+      --chip-border: rgba(255, 255, 255, 0.12);
+      --chip-border-hover: rgba(255, 255, 255, 0.24);
+      --chip-text: rgba(255, 255, 255, 0.76);
+      --chip-text-hover: #ffffff;
+
+      --badge-bg: rgba(255, 255, 255, 0.08);
+      --badge-border: rgba(255, 255, 255, 0.16);
+      --badge-text: rgba(255, 255, 255, 0.7);
+
+      --btn-glass-bg: rgba(255, 255, 255, 0.07);
+      --btn-glass-bg-hover: rgba(255, 255, 255, 0.13);
+      --btn-glass-border: rgba(255, 255, 255, 0.18);
+      --btn-glass-text: #ffffff;
+
+      --toast-bg: rgba(22, 26, 42, 0.92);
+      --toast-text: #ffffff;
+      --card-link-border: rgba(255, 255, 255, 0.09);
+      --footer-border: rgba(255, 255, 255, 0.1);
+      --footer-text: rgba(255, 255, 255, 0.44);
+      --footer-link: rgba(255, 255, 255, 0.72);
+      --avatar-bg: rgba(20, 24, 38, 0.85);
+      --avatar-border: rgba(255, 255, 255, 0.28);
+
+      --apple-blue: #0a84ff;
+      --apple-blue-hover: #0071e3;
+      --apple-green: #30d158;
     }
 
-    /* 全局重置 */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* ── 白天模式 (macOS Light Glass) ── */
+    html[data-theme="light"] {
+      --bg-color: #f1f4fa;
+      --mesh-1: rgba(147, 197, 253, 0.65);
+      --mesh-2: rgba(244, 182, 219, 0.52);
+      --mesh-3: rgba(196, 181, 253, 0.52);
+      --mesh-4: rgba(110, 231, 183, 0.48);
+      --mesh-5: rgba(186, 230, 253, 0.58);
+
+      --orb-opacity: 0.45;
+      --sheen-color: rgba(255, 255, 255, 0.55);
+
+      --topbar-bg: rgba(255, 255, 255, 0.72);
+      --glass-bg: rgba(255, 255, 255, 0.68);
+      --glass-bg-hover: rgba(255, 255, 255, 0.88);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --glass-border-hover: #ffffff;
+      --glass-highlight: inset 0 1px 1px 0 #ffffff;
+      --glass-highlight-hover: inset 0 1px 2px 0 #ffffff;
+      --glass-shadow: 0 18px 38px -8px rgba(15, 23, 42, 0.07), 0 3px 10px rgba(15, 23, 42, 0.03);
+      --glass-shadow-hover: 0 26px 52px -8px rgba(15, 23, 42, 0.11), 0 6px 16px rgba(15, 23, 42, 0.05);
+
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #64748b;
+      --tag-color: #334155;
+
+      --chip-bg: rgba(255, 255, 255, 0.7);
+      --chip-bg-hover: rgba(255, 255, 255, 0.98);
+      --chip-border: rgba(203, 213, 225, 0.6);
+      --chip-border-hover: rgba(148, 163, 184, 0.7);
+      --chip-text: #475569;
+      --chip-text-hover: #0f172a;
+
+      --badge-bg: rgba(0, 0, 0, 0.04);
+      --badge-border: rgba(0, 0, 0, 0.08);
+      --badge-text: #64748b;
+
+      --btn-glass-bg: rgba(255, 255, 255, 0.7);
+      --btn-glass-bg-hover: rgba(255, 255, 255, 0.95);
+      --btn-glass-border: rgba(203, 213, 225, 0.65);
+      --btn-glass-text: #1e293b;
+
+      --toast-bg: rgba(255, 255, 255, 0.95);
+      --toast-text: #0f172a;
+      --card-link-border: rgba(203, 213, 225, 0.45);
+      --footer-border: rgba(203, 213, 225, 0.55);
+      --footer-text: #64748b;
+      --footer-link: #334155;
+      --avatar-bg: #e2e8f0;
+      --avatar-border: #ffffff;
+
+      --apple-blue: #0071e3;
+      --apple-blue-hover: #005bb5;
+      --apple-green: #10b981;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
       scroll-behavior: smooth;
-      font-family: var(--font-stack);
-      color: var(--text-main);
-      background-color: var(--bg);
-      text-rendering: optimizeLegibility;
+      font-family: var(--system-font);
+      color: var(--text-primary);
+      background-color: var(--bg-color);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* 苹果微质感半透明滚动条 */
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(140, 140, 160, 0.28);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(140, 140, 160, 0.45);
+      background-clip: padding-box;
     }
 
     body {
       min-height: 100vh;
+      margin: 0;
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(at 15% 15%, var(--mesh-1) 0px, transparent 55%),
+        radial-gradient(at 85% 10%, var(--mesh-2) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, var(--mesh-3) 0px, transparent 60%),
+        radial-gradient(at 80% 85%, var(--mesh-4) 0px, transparent 50%),
+        radial-gradient(at 20% 90%, var(--mesh-5) 0px, transparent 50%);
+      background-attachment: fixed;
+      background-size: cover;
       overflow-x: hidden;
       position: relative;
-      background: radial-gradient(circle at 50% 0%, #151432 0%, #090913 45%, #050509 100%);
-      line-height: 1.6;
+      transition: background-color 0.4s ease;
+    }
+
+    /* 苹果动态桌面多层流体环境光层 */
+    .apple-mesh-aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: var(--orb-opacity);
+      will-change: transform;
+      animation: floatMesh 22s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+      transition: opacity 0.4s ease;
+    }
+
+    .orb-1 {
+      width: 620px; height: 620px;
+      top: -160px; left: 12%;
+      background: radial-gradient(circle, #5e5ce6 0%, #0a84ff 60%, transparent 80%);
+    }
+
+    .orb-2 {
+      width: 540px; height: 540px;
+      bottom: -100px; right: 8%;
+      background: radial-gradient(circle, #bf5af2 0%, #ff375f 60%, transparent 80%);
+      animation-delay: -11s;
+    }
+
+    .orb-3 {
+      width: 480px; height: 480px;
+      top: 45%; left: 60%;
+      background: radial-gradient(circle, #64d2ff 0%, #30d158 55%, transparent 75%);
+      animation-delay: -6s;
+    }
+
+    @keyframes floatMesh {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(50px, 35px) scale(1.08); }
+      100% { transform: translate(-35px, 55px) scale(0.95); }
     }
 
     ::selection {
-      background: rgba(99, 102, 241, 0.4);
+      background: rgba(10, 132, 255, 0.35);
       color: #fff;
     }
 
-    /* 科技背景图层：微网格 + 粒子 Canvas + 氛围环境光 */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      z-index: 0;
-      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 80%);
-      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 80%);
-    }
-
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .ambient-aurora {
-      position: fixed;
-      width: 650px;
-      height: 650px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.28;
-      z-index: 0;
-      pointer-events: none;
-      animation: auroraFloat 18s ease-in-out infinite alternate;
-    }
-
-    .aurora-1 {
-      top: -200px;
-      left: 10%;
-      background: radial-gradient(circle, #4f46e5 0%, #7c3aed 50%, transparent 70%);
-    }
-
-    .aurora-2 {
-      bottom: -150px;
-      right: 5%;
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, #06b6d4 0%, #2563eb 50%, transparent 70%);
-      animation-delay: -9s;
-    }
-
-    @keyframes auroraFloat {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(60px, 40px) scale(1.12); }
-      100% { transform: translate(-40px, 70px) scale(0.95); }
-    }
-
-    /* 页面主容器 */
-    .container {
-      position: relative;
-      z-index: 2;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ============================================================
-       1. 现代化毛玻璃吸顶导航栏 (Navbar)
-       ============================================================ */
-    .header-nav {
+    /* ── 顶部浮动毛玻璃胶囊导航栏 (Apple Island Topbar) ── */
+    .topbar-wrapper {
       position: sticky;
-      top: 16px;
+      top: 18px;
       z-index: 100;
-      margin-bottom: 40px;
-      padding: 0 8px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .nav-shell {
-      max-width: 1040px;
-      margin: 0 auto;
-      height: 60px;
-      padding: 0 16px 0 20px;
+    .topbar {
+      height: 56px;
+      padding: 0 14px 0 18px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 16px;
-      background: rgba(13, 14, 25, 0.72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: var(--topbar-bg);
+      backdrop-filter: blur(35px) saturate(190%);
+      -webkit-backdrop-filter: blur(35px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      box-shadow: 
+        0 16px 36px rgba(0, 0, 0, 0.12),
+        var(--glass-highlight);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .nav-shell:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    .topbar:hover {
+      border-color: var(--glass-border-hover);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.18),
+        var(--glass-highlight-hover);
     }
 
-    .brand-link {
-      display: inline-flex;
+    .brand {
+      display: flex;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-main);
+      gap: 10px;
+      color: var(--text-primary);
       font-weight: 700;
       font-size: 15px;
+      text-decoration: none;
       letter-spacing: -0.2px;
+      white-space: nowrap;
     }
 
-    .brand-avatar {
-      width: 32px;
-      height: 32px;
+    .brand img {
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      border: 1.5px solid var(--avatar-border);
+      background: var(--avatar-bg);
       object-fit: cover;
       display: block;
-      background: #111222;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease;
     }
 
-    .brand-meta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .brand:hover img {
+      transform: scale(1.08);
     }
 
-    .brand-domain {
-      font-family: var(--mono-stack);
-      font-size: 13px;
-      color: var(--text-dim);
+    .brand .domain {
+      color: var(--text-tertiary);
       font-weight: 400;
+      font-family: var(--mono-font);
+      font-size: 13px;
     }
 
-    .nav-links {
+    .topnav {
+      margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
-    .nav-item {
-      padding: 7px 14px;
-      border-radius: var(--radius-full);
-      font-size: 14px;
+    .topnav a {
+      padding: 6px 13px;
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-size: 13.5px;
       font-weight: 500;
-      color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    .nav-item:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
+    .topnav a:hover {
+      color: var(--text-primary);
+      background: var(--btn-glass-bg);
     }
 
-    .nav-github-btn {
+    .topnav a.gh {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 7px 16px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-      color: #fff;
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 5px;
     }
 
-    .nav-github-btn svg {
-      width: 16px;
-      height: 16px;
+    .topnav a.gh svg {
+      width: 15px;
+      height: 15px;
       fill: currentColor;
     }
 
-    .nav-github-btn:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-1px);
-    }
-
-    /* ============================================================
-       2. Hero 展区 (Hero Header)
-       ============================================================ */
-    .hero-section {
-      padding: 30px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-badge-pill {
+    /* ── 苹果风格昼夜切换按钮 (Apple Theme Switcher) ── */
+    .theme-toggle-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      border-radius: var(--radius-full);
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: var(--btn-glass-bg);
+      color: var(--text-secondary);
+      cursor: pointer;
+      box-shadow: var(--glass-highlight);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-left: 4px;
+    }
+
+    .theme-toggle-btn:hover {
+      color: var(--text-primary);
+      background: var(--btn-glass-bg-hover);
+      border-color: var(--glass-border-hover);
+      transform: scale(1.08) rotate(15deg);
+    }
+
+    .theme-toggle-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .sun-icon { display: none; }
+    .moon-icon { display: block; }
+
+    html:not([data-theme="light"]) .sun-icon { display: block; }
+    html:not([data-theme="light"]) .moon-icon { display: none; }
+
+    html[data-theme="light"] .sun-icon { display: none; }
+    html[data-theme="light"] .moon-icon { display: block; }
+
+    /* ── 页面主体 ── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 44px 20px 84px;
+    }
+
+    section { scroll-margin-top: 90px; }
+
+    /* ── Hero 迎宾区 ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      padding: 30px 0 44px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      color: var(--tag-color);
       font-size: 12.5px;
       font-weight: 500;
-      color: #a5b4fc;
-      margin-bottom: 20px;
-      letter-spacing: 0.3px;
+      background: var(--btn-glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--glass-highlight);
+      transition: all 0.3s ease;
     }
 
-    .hero-badge-pill .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #818cf8;
-      box-shadow: 0 0 8px #818cf8;
-    }
-
-    .hero-title {
-      font-size: clamp(38px, 6vw, 62px);
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(38px, 6vw, 60px);
+      line-height: 1.1;
       font-weight: 800;
-      line-height: 1.12;
       letter-spacing: -1.2px;
-      color: #fff;
-      margin-bottom: 18px;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
     }
 
-    .hero-title .gradient-text {
-      background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, #818cf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-title .wave-hand {
+    h1 .wave {
       display: inline-block;
-      animation: waveHand 2.4s ease-in-out infinite;
-      transform-origin: 75% 75%;
+      animation: wave 2.5s ease-in-out infinite;
+      transform-origin: 70% 70%;
     }
 
-    @keyframes waveHand {
+    @keyframes wave {
       0%, 100% { transform: rotate(0deg); }
-      15% { transform: rotate(14deg); }
-      30% { transform: rotate(-8deg); }
-      45% { transform: rotate(14deg); }
-      60% { transform: rotate(-4deg); }
-      75% { transform: rotate(8deg); }
+      15%      { transform: rotate(14deg); }
+      30%      { transform: rotate(-8deg); }
+      45%      { transform: rotate(14deg); }
+      60%      { transform: rotate(-4deg); }
+      75%      { transform: rotate(8deg); }
     }
 
-    .hero-desc {
-      font-size: clamp(16px, 1.8vw, 18px);
-      color: var(--text-muted);
-      max-width: 580px;
+    .summary {
+      max-width: 520px;
+      color: var(--text-secondary);
+      font-size: 16px;
       line-height: 1.8;
-      margin-bottom: 32px;
+      font-weight: 400;
+      transition: color 0.3s ease;
     }
 
-    .hero-cta-group {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    /* 按钮通用 */
+    /* 苹果风格晶圆按钮 */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: var(--radius-md);
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--btn-glass-border);
+      background: var(--btn-glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: var(--btn-glass-text);
       font-size: 14.5px;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      border: 1px solid transparent;
+      box-shadow: var(--glass-highlight);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--btn-glass-bg-hover);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15), var(--glass-highlight-hover);
+    }
+
+    .btn.primary {
+      background: var(--apple-blue);
+      border-color: transparent;
       color: #ffffff;
-      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      box-shadow: 
+        0 6px 20px rgba(0, 113, 227, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #7175f3 0%, #5d55ec 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    .btn.primary:hover {
+      background: var(--apple-blue-hover);
+      box-shadow: 
+        0 8px 28px rgba(0, 113, 227, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
     }
 
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--border-subtle);
-      color: var(--text-main);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--border-highlight);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* 头像与状态卡片 */
-    .profile-card {
-      position: relative;
+    /* 个人资料卡片 */
+    .signature {
+      flex-shrink: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 28px 32px;
-      background: rgba(18, 18, 30, 0.5);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+      gap: 16px;
+      padding: 14px 20px;
+      border-radius: 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(35px) saturate(180%);
+      -webkit-backdrop-filter: blur(35px) saturate(180%);
+      box-shadow: var(--glass-shadow), var(--glass-highlight);
+      transition: all 0.3s ease;
     }
 
-    .profile-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .avatar-halo-box {
+    .avatar-wrap {
       position: relative;
-      width: 92px;
-      height: 92px;
-      margin-bottom: 16px;
+      width: 72px;
+      height: 72px;
     }
 
-    .avatar-halo-box::before {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #6366f1, #d946ef, #06b6d4, #6366f1);
-      animation: rotateGlow 6s linear infinite;
-      filter: blur(6px);
-      opacity: 0.7;
-    }
-
-    .avatar-halo-box::after {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #6366f1, #d946ef, #06b6d4, #6366f1);
-      animation: rotateGlow 6s linear infinite;
-    }
-
-    @keyframes rotateGlow {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-avatar {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
+    .mark {
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       object-fit: cover;
+      border: 2px solid var(--avatar-border);
+      background: var(--avatar-bg);
       display: block;
-      border: 3px solid #090914;
-      background: #111222;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
     }
 
-    .profile-name {
-      font-size: 19px;
+    .signature:hover .mark {
+      transform: scale(1.04);
+    }
+
+    .sig-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sig-name {
+      color: var(--text-primary);
+      font-size: 17px;
       font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
-    .profile-handle {
-      font-size: 13px;
-      font-family: var(--mono-stack);
-      color: var(--text-dim);
-      margin-top: 2px;
-      margin-bottom: 14px;
-    }
-
-    /* 实时状态与时钟指示 */
-    .status-badge {
-      display: inline-flex;
+    .sig-status {
+      display: flex;
       align-items: center;
-      gap: 7px;
-      padding: 5px 12px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 600;
-      color: #34d399;
+      gap: 6px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+      font-weight: 500;
     }
 
-    .pulse-dot {
+    .sig-status .dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      animation: pulseAnim 2s infinite ease-in-out;
+      background: var(--apple-green);
+      box-shadow: 0 0 8px var(--apple-green);
+      animation: blink 2.5s ease-in-out infinite;
     }
 
-    @keyframes pulseAnim {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.35; }
     }
 
-    .live-clock {
-      margin-top: 10px;
-      font-family: var(--mono-stack);
-      font-size: 11.5px;
-      color: var(--text-dim);
-      letter-spacing: 0.5px;
-    }
-
-    /* ============================================================
-       3. 核心统计亮点条 (Highlight Bar)
-       ============================================================ */
-    .quick-stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 80px;
-    }
-
-    .stat-pill {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 20px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      transition: border-color 0.25s, transform 0.25s, background 0.25s;
-    }
-
-    .stat-pill:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.05);
-      transform: translateY(-2px);
-    }
-
-    .stat-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.06);
-      color: #a5b4fc;
-      flex-shrink: 0;
-    }
-
-    .stat-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .stat-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .stat-subtitle {
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-
-    /* ============================================================
-       4. 项目与在线服务 (Projects & Services Section)
-       ============================================================ */
-    .section-block {
-      margin-bottom: 100px;
-      scroll-margin-top: 90px;
-    }
-
-    .section-header-wrap {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-
-    .section-eyebrow {
-      font-family: var(--mono-stack);
-      font-size: 12px;
-      font-weight: 600;
-      color: #818cf8;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 6px;
+    /* ── 区块标题 ── */
+    .section {
+      margin-top: 74px;
     }
 
     .section-heading {
-      font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      color: #fff;
-    }
-
-    .section-caption {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-top: 6px;
-      max-width: 580px;
-    }
-
-    /* 筛选 Tab 栏 */
-    .filter-tabs {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-    }
-
-    .tab-btn {
-      padding: 6px 16px;
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn.active {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .tab-btn:hover:not(.active) {
-      color: #fff;
-    }
-
-    /* 项目卡片网格 (Spotlight 聚光灯流光卡片) */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .project-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: var(--radius-lg);
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 32px 30px;
-      text-decoration: none;
-      overflow: hidden;
-      isolation: isolate;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
-    }
-
-    /* 鼠标流光跟随层 */
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: radial-gradient(
-        600px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
-        var(--card-spotlight, rgba(99, 102, 241, 0.18)),
-        transparent 45%
-      );
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.55);
-    }
-
-    /* 各项目主题色配置 */
-    .card-cm {
-      --card-spotlight: rgba(99, 102, 241, 0.22);
-      --card-accent: #6366f1;
-    }
-    .card-cosmo {
-      --card-spotlight: rgba(217, 70, 239, 0.22);
-      --card-accent: #d946ef;
-    }
-    .card-shop {
-      --card-spotlight: rgba(16, 185, 129, 0.2);
-      --card-accent: #10b981;
-    }
-    .card-nps {
-      --card-spotlight: rgba(6, 182, 212, 0.2);
-      --card-accent: #06b6d4;
-    }
-
-    .project-top-bar {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .p-icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      flex-shrink: 0;
-    }
-
-    .p-icon-box svg {
-      width: 26px;
-      height: 26px;
-    }
-
-    .card-cm .p-icon-box {
-      background: linear-gradient(135deg, #6366f1, #4338ca);
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-    }
-    .card-cosmo .p-icon-box {
-      background: linear-gradient(135deg, #a855f7, #7c3aed);
-      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
-    }
-    .card-shop .p-icon-box {
-      background: linear-gradient(135deg, #10b981, #059669);
-      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
-    }
-    .card-nps .p-icon-box {
-      background: linear-gradient(135deg, #06b6d4, #0284c7);
-      box-shadow: 0 8px 24px rgba(6, 182, 212, 0.35);
-    }
-
-    .card-badge {
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-size: 11.5px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .project-name-wrap {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .project-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.3px;
-    }
-
-    .project-sub {
-      font-size: 13.5px;
-      color: var(--text-dim);
-      font-weight: 500;
-    }
-
-    .project-desc {
-      font-size: 14.5px;
-      line-height: 1.8;
-      color: var(--text-muted);
-      margin-top: 14px;
-      margin-bottom: 20px;
-    }
-
-    /* 标签胶囊群 */
-    .chips-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 26px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .chip-item {
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      color: #cbd5e1;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .project-card:hover .chip-item {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-
-    /* 操作按钮栏与全卡点透 */
-    .card-actions-bar {
-      position: relative;
-      z-index: 4;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: auto;
-    }
-
-    .btn-action-main {
-      padding: 8px 16px;
-      font-size: 13.5px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.09);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: all 0.2s ease;
-    }
-
-    .btn-action-main:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: rgba(255, 255, 255, 0.28);
-    }
-
-    .btn-action-gh {
-      padding: 8px 14px;
-      font-size: 13.5px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border-subtle);
-      transition: all 0.2s ease;
-      margin-left: auto;
-    }
-
-    .btn-action-gh svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-
-    .btn-action-gh:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.18);
-    }
-
-    /* 透明整卡点击热区 */
-    .card-full-link {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      border-radius: inherit;
-    }
-
-    /* ============================================================
-       5. 全渠道联络方式 (Contact Section)
-       ============================================================ */
-    .contacts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .contact-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 52px 1fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 20px 24px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .contact-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-
-    .contact-card.qq::before { background: radial-gradient(circle at left, rgba(59, 130, 246, 0.15), transparent 70%); }
-    .contact-card.wechat::before { background: radial-gradient(circle at left, rgba(16, 185, 129, 0.15), transparent 70%); }
-    .contact-card.mail::before { background: radial-gradient(circle at left, rgba(244, 63, 94, 0.15), transparent 70%); }
-    .contact-card.telegram::before { background: radial-gradient(circle at left, rgba(6, 182, 212, 0.15), transparent 70%); }
-
-    .contact-card:hover::before { opacity: 1; }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.4);
-    }
-
-    .c-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      position: relative;
-      z-index: 2;
-    }
-
-    .c-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .contact-card.qq .c-icon {
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
-    }
-    .contact-card.wechat .c-icon {
-      background: linear-gradient(135deg, #10b981, #047857);
-      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
-    }
-    .contact-card.mail .c-icon {
-      background: linear-gradient(135deg, #f43f5e, #be123c);
-      box-shadow: 0 6px 18px rgba(244, 63, 94, 0.35);
-    }
-    .contact-card.telegram .c-icon {
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
-    }
-
-    .c-info {
-      position: relative;
-      z-index: 2;
-    }
-
-    .c-label {
-      font-size: 12.5px;
-      color: var(--text-dim);
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .c-value {
-      font-size: 17px;
-      font-weight: 700;
-      color: #fff;
-      font-family: var(--mono-stack);
-      letter-spacing: -0.3px;
-    }
-
-    .c-action-pill {
-      position: relative;
-      z-index: 2;
-      padding: 7px 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .contact-card:hover .c-action-pill {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.25);
-      color: #fff;
-    }
-
-    /* ============================================================
-       6. 微信专属交互弹窗 (WeChat Modal)
-       ============================================================ */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .modal-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-box {
-      width: 100%;
-      max-width: 380px;
-      background: #111222;
-      border: 1px solid var(--border-highlight);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      text-align: center;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-      transform: scale(0.92) translateY(20px);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .modal-backdrop.open .modal-box {
-      transform: scale(1) translateY(0);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .modal-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .modal-close-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-dim);
-      font-size: 20px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px;
-      border-radius: 6px;
-      transition: color 0.2s;
-    }
-
-    .modal-close-btn:hover { color: #fff; }
-
-    .wechat-id-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: var(--radius-md);
-      font-family: var(--mono-stack);
-      font-size: 22px;
-      font-weight: 800;
-      color: #34d399;
-      letter-spacing: 1px;
-      margin: 10px 0 20px;
-      width: 100%;
-    }
-
-    .modal-tips {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.6;
       margin-bottom: 24px;
     }
 
-    /* 浮动 Toast 提示条 */
-    .toast-pill {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(40px);
-      z-index: 1100;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
+    .section-heading h2 {
+      color: var(--text-primary);
+      font-size: clamp(24px, 3.5vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.6px;
+    }
+
+    .section-heading p {
+      margin-top: 8px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── 苹果液态毛玻璃卡片 (Apple Glass Cards with Specular Sheen) ── */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      border-radius: 26px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(40px) saturate(190%);
+      -webkit-backdrop-filter: blur(40px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        var(--glass-shadow),
+        var(--glass-highlight);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                  background 0.3s ease, 
+                  border-color 0.3s ease;
+    }
+
+    /* 光标动态镜面反光光晕 (Apple Specular Sheen) */
+    .project::before,
+    .contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        420px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+        var(--sheen-color),
+        transparent 55%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .project:hover::before,
+    .contact:hover::before {
+      opacity: 1;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-hover);
+      box-shadow: 
+        var(--glass-shadow-hover),
+        var(--glass-highlight-hover);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* iOS 风格 App 图标 (圆角拟物微光) */
+    .p-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
       color: #fff;
-      font-size: 14px;
+      flex-shrink: 0;
+      box-shadow: 
+        0 8px 22px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project:hover .p-icon {
+      transform: scale(1.05);
+    }
+
+    .p-icon svg { width: 26px; height: 26px; fill: currentColor; }
+
+    .project.cm .p-icon {
+      background: linear-gradient(145deg, #5e5ce6, #3b3ac4);
+    }
+
+    .project.cosmo .p-icon {
+      background: linear-gradient(145deg, #bf5af2, #9a3cd2);
+    }
+
+    .project.shop .p-icon {
+      background: linear-gradient(145deg, #30d158, #20a040);
+    }
+
+    .project.nps .p-icon {
+      background: linear-gradient(145deg, #64d2ff, #0091ff);
+    }
+
+    /* 苹果微型胶囊标识 */
+    .p-badge {
+      margin-left: auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11.5px;
       font-weight: 500;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--badge-text);
+      letter-spacing: 0.2px;
+    }
+
+    /* 横向通栏卡片 */
+    .project.shop,
+    .project.nps {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .project.shop .project-top,
+    .project.nps .project-top { flex: 0 0 auto; }
+
+    .project.shop .p-body,
+    .project.nps .p-body { flex: 1 1 340px; }
+
+    .project.shop .p-desc,
+    .project.nps .p-desc { margin-top: 0; }
+
+    .project.shop .p-actions,
+    .project.nps .p-actions {
+      margin-top: 14px;
+      padding-top: 0;
+      border-top: none;
+      flex: 0 0 auto;
+      align-self: center;
+    }
+
+    .project.shop .chips,
+    .project.nps .chips { margin-top: 14px; }
+
+    .p-name {
+      color: var(--text-primary);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .p-sub {
+      color: var(--text-tertiary);
+      font-size: 13px;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .p-desc {
+      margin-top: 18px;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 苹果风格标签胶囊 (Glass Chips) */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .chip {
+      padding: 5px 12px;
+      border: 1px solid var(--chip-border);
+      border-radius: 999px;
+      background: var(--chip-bg);
+      backdrop-filter: blur(10px);
+      color: var(--chip-text);
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .project:hover .chip {
+      background: var(--chip-bg-hover);
+      color: var(--chip-text-hover);
+      border-color: var(--chip-border-hover);
+    }
+
+    .p-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-link-border);
+      position: relative;
+      z-index: 3;
+    }
+
+    .p-actions .btn {
+      padding: 8px 18px;
+      font-size: 13.5px;
+      border-radius: 999px;
+    }
+
+    .p-actions .btn span.arrow {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .project:hover .p-actions .btn.primary span.arrow {
+      transform: translateX(3px);
+    }
+
+    .p-actions .spacer { flex: 1; }
+
+    .card-link {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      z-index: 2;
+    }
+
+    .p-actions .btn.gh-link {
+      position: relative;
+      z-index: 4;
+      pointer-events: auto;
+    }
+
+    /* ── 苹果风格联络卡片 (Contact Matrix) ── */
+    .contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact {
+      min-height: 88px;
+      display: grid;
+      grid-template-columns: 50px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 20px;
+      border-radius: 20px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(35px) saturate(180%);
+      -webkit-backdrop-filter: blur(35px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        var(--glass-shadow),
+        var(--glass-highlight);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease, 
+                  background 0.25s ease, 
+                  box-shadow 0.25s ease;
+    }
+
+    .contact:hover {
+      transform: translateY(-3px);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-bg-hover);
+      box-shadow: 
+        var(--glass-shadow-hover),
+        var(--glass-highlight-hover);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #fff;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      box-shadow: 
+        0 6px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .contact:hover .icon {
+      transform: scale(1.06);
+    }
+
+    .icon svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .contact.qq .icon       { background: linear-gradient(145deg, #0a84ff, #0066cc); }
+    .contact.wechat .icon   { background: linear-gradient(145deg, #30d158, #209940); }
+    .contact.mail .icon     { background: linear-gradient(145deg, #ff453a, #cc2218); }
+    .contact.telegram .icon { background: linear-gradient(145deg, #64d2ff, #0a84ff); }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--text-tertiary);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+
+    .value {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--mono-font);
+      letter-spacing: -0.3px;
+    }
+
+    .action {
+      position: relative;
+      z-index: 2;
+      padding: 6px 14px;
+      border: 1px solid var(--chip-border);
+      border-radius: 999px;
+      color: var(--chip-text);
+      font-size: 13px;
+      font-weight: 500;
+      background: var(--chip-bg);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+      box-shadow: var(--glass-highlight);
+      transition: all 0.2s ease;
+    }
+
+    .contact:hover .action {
+      background: var(--chip-bg-hover);
+      color: var(--chip-text-hover);
+      border-color: var(--chip-border-hover);
+    }
+
+    /* 苹果灵动岛式动态反馈胶囊 (Apple Dynamic Island Toast) */
+    .toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-60px);
+      z-index: 1000;
+      background: var(--toast-bg);
+      backdrop-filter: blur(35px) saturate(190%);
+      -webkit-backdrop-filter: blur(35px) saturate(190%);
+      border: 1px solid var(--glass-border-hover);
+      padding: 10px 22px;
+      border-radius: 999px;
+      color: var(--toast-text);
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.25),
+        var(--glass-highlight);
       opacity: 0;
       pointer-events: none;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
-    .toast-pill.show {
+    .toast svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--apple-green);
+    }
+
+    .toast.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
 
-    /* ============================================================
-       7. 页脚设计 (Footer)
-       ============================================================ */
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 40px 0 50px;
+    /* ── 页脚 ── */
+    .footer {
+      border-top: 1px solid var(--footer-border);
+      margin-top: 80px;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--footer-text);
+      font-size: 13px;
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      color: var(--text-dim);
-      font-size: 13px;
-    }
-
-    .footer-links-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-link {
-      color: var(--text-dim);
-      font-size: 13px;
+    .footer a {
+      color: var(--footer-link);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-link:hover {
-      color: var(--text-main);
+    .footer a:hover {
+      color: var(--text-primary);
     }
 
-    /* ============================================================
-       8. 响应式布局优化 (Responsive Breakpoints)
-       ============================================================ */
-    @media (max-width: 960px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .profile-card {
-        order: -1;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-align: left;
-        padding: 20px 24px;
-        gap: 20px;
-      }
-      .avatar-halo-box {
-        margin-bottom: 0;
-        width: 72px;
-        height: 72px;
-        flex-shrink: 0;
-      }
-      .quick-stats-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      .contacts-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .header-nav {
-        top: 10px;
-        padding: 0;
-      }
-      .nav-shell {
-        height: 54px;
-        padding: 0 12px;
-      }
-      .nav-links a:not(.keep-mobile) {
-        display: none;
-      }
-      .quick-stats-row {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      .profile-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px 20px;
-      }
-      .avatar-halo-box {
-        margin-bottom: 12px;
-      }
-      .hero-cta-group {
-        width: 100%;
-      }
-      .hero-cta-group .btn {
-        flex: 1 1 auto;
-      }
-      .project-card {
-        padding: 24px 20px;
-      }
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
+    /* ── 移动端适配 ── */
+    @media (max-width: 860px) {
+      .topbar-wrapper { padding: 0 12px; }
+      .wrap { padding: 30px 14px 60px; }
+      .hero { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .signature { order: -1; width: 100%; justify-content: flex-start; }
+      .projects, .contacts { grid-template-columns: 1fr; }
+      .project.shop, .project.nps { flex-direction: column; gap: 0; }
+      .project.shop .p-body, .project.nps .p-body { flex: 0 0 auto; margin-top: 18px; }
+      .p-badge { display: none; }
+      .brand .domain { display: none; }
+      h1 { margin-top: 16px; }
     }
   </style>
 </head>
-
 <body>
-  <!-- 科技动态背景 -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <canvas id="particles" aria-hidden="true"></canvas>
-  <div class="ambient-aurora aurora-1" aria-hidden="true"></div>
-  <div class="ambient-aurora aurora-2" aria-hidden="true"></div>
+  <!-- 苹果动态流体多层背景 -->
+  <div class="apple-mesh-aurora" aria-hidden="true">
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+    <div class="aurora-orb orb-3"></div>
+  </div>
 
-  <!-- 顶部吸顶导航 -->
-  <header class="header-nav">
-    <div class="nav-shell">
-      <a class="brand-link" href="/" aria-label="返回首页">
-        <img class="brand-avatar" src="/avatar.png" alt="何子墨">
-        <div class="brand-meta">
-          <span>何子墨</span>
-          <span class="brand-domain">· 666228.xyz</span>
-        </div>
+  <!-- 顶部悬浮毛玻璃胶囊导航栏 (Apple Island Topbar) -->
+  <div class="topbar-wrapper">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="首页">
+        <img src="/avatar.png" alt="何子墨">
+        <span>何子墨 <span class="domain">· 666228.xyz</span></span>
       </a>
-
-      <nav class="nav-links" aria-label="站点主导航">
-        <a class="nav-item keep-mobile" href="#projects">项目与服务</a>
-        <a class="nav-item keep-mobile" href="#contact">联系方式</a>
-        <a class="nav-github-btn" href="https://github.com/qwernot" target="_blank" rel="noopener" aria-label="何子墨的 GitHub">
+      <nav class="topnav" aria-label="站内导航">
+        <a href="#projects">项目</a>
+        <a href="#contact">联系我</a>
+        <a class="gh" href="https://github.com/qwernot" target="_blank" rel="noopener" aria-label="GitHub 主页">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          <span>GitHub</span>
+          GitHub
         </a>
+
+        <!-- 苹果风格昼夜主题切换按钮 -->
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="切换浅色/深色主题" title="切换浅色/深色模式">
+          <!-- 太阳图标（暗黑模式下显示） -->
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- 月亮图标（白天模式下显示） -->
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
       </nav>
-    </div>
-  </header>
+    </header>
+  </div>
 
-  <main class="container">
+  <div class="wrap">
     <!-- Hero 迎宾区 -->
-    <section class="hero-section" aria-label="个人简介与概述">
-      <div class="hero-grid">
-        <div class="hero-text-block">
-          <div class="hero-badge-pill">
-            <span class="pill-dot"></span>
-            <span>自托管工具 &amp; 极简开发者门户</span>
-          </div>
-          <h1 class="hero-title">
-            你好，我是 <span class="gradient-text">何子墨</span> <span class="wave-hand">👋</span>
-          </h1>
-          <p class="hero-desc">
-            探索与构建干净、好用、自托管的现代效率工具与网络服务。在这里汇集了我的开源平台、在线服务、使用文档与即时联络通道，点击即可直达。
-          </p>
-          <div class="hero-cta-group">
-            <a class="btn btn-primary" href="#projects">
-              <span>探索项目与服务</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            <a class="btn btn-glass" href="#contact">
-              <span>即刻联络</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 个人资料动态徽章卡片 -->
-        <aside class="profile-card" aria-label="开发者个人状态">
-          <div class="avatar-halo-box">
-            <img class="hero-avatar" src="/avatar.png" alt="何子墨的头像">
-          </div>
-          <div>
-            <div class="profile-name">He Zimo</div>
-            <div class="profile-handle">@qwernot · 666228.xyz</div>
-            <div class="status-badge">
-              <span class="pulse-dot"></span>
-              <span>在线 · 随时联络</span>
-            </div>
-            <div class="live-clock" id="liveClock">UTC+8 --:--:--</div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- 关键亮点统计条 -->
-    <section class="quick-stats-row" aria-label="技术栈与服务特色">
-      <div class="stat-pill">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        </div>
-        <div>
-          <div class="stat-title">全栈自托管</div>
-          <div class="stat-subtitle">私有化部署 · 数据完全掌控</div>
+    <section class="hero" aria-label="个人简介">
+      <div>
+        <div class="tag">✦ 个人主页 · 666228.xyz</div>
+        <h1>何子墨 <span class="wave">👋</span></h1>
+        <p class="summary">你好，欢迎来到我的主页。这里汇集了我的开源项目、自建服务与联系方式，点开即可直达。</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">查看项目 ↓</a>
+          <a class="btn" href="#contact">联系我</a>
         </div>
       </div>
-      <div class="stat-pill">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="signature">
+        <div class="avatar-wrap">
+          <img class="mark" src="/avatar.png" alt="何子墨的头像">
         </div>
-        <div>
-          <div class="stat-title">极简高响应</div>
-          <div class="stat-subtitle">单文件架构 · 秒级冷启动</div>
-        </div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <div>
-          <div class="stat-title">7×24h 自动化</div>
-          <div class="stat-subtitle">自动发货 · 持续高可用</div>
-        </div>
-      </div>
-      <div class="stat-pill">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-        </div>
-        <div>
-          <div class="stat-title">公网无缝互联</div>
-          <div class="stat-subtitle">内网穿透 · 全协议支持</div>
+        <div class="sig-info">
+          <span class="sig-name">He Zimo</span>
+          <span class="sig-status"><span class="dot"></span> 在线</span>
         </div>
       </div>
     </section>
 
-    <!-- 项目与服务 (Projects & Services) -->
-    <section class="section-block" id="projects" aria-label="项目与在线服务">
-      <div class="section-header-wrap">
-        <div>
-          <div class="section-eyebrow">Projects &amp; Cloud Services</div>
-          <h2 class="section-heading">精选项目与服务</h2>
-          <p class="section-caption">涵盖自托管代理管理平台、多邮箱聚合系统、高可用内网穿透与数字商店，配备完整在线文档。</p>
-        </div>
-
-        <!-- 分类快速筛选 Tab -->
-        <div class="filter-tabs" role="tablist" aria-label="项目分类筛选">
-          <button class="tab-btn active" data-filter="all" type="button">全部展示 (4)</button>
-          <button class="tab-btn" data-filter="tool" type="button">开源工具 (2)</button>
-          <button class="tab-btn" data-filter="service" type="button">在线服务 (2)</button>
-        </div>
+    <!-- 项目与服务 -->
+    <section class="section" id="projects" aria-label="项目与服务">
+      <div class="section-heading">
+        <h2>项目与服务</h2>
+        <p>两个自托管工具、一个内网穿透平台和一个在线商店，配套中文文档都在本站内。</p>
       </div>
 
-      <div class="projects-grid" id="projectsGrid">
-        <!-- 1. CMSingBox -->
-        <article class="project-card card-cm" data-category="tool" aria-label="CMSingBox 项目卡片">
-          <a class="card-full-link" href="/CM/" aria-label="打开 CMSingBox 官方文档"></a>
-          
-          <div class="project-top-bar">
-            <div class="p-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
-            </div>
-            <span class="card-badge">自托管 · 推荐</span>
-          </div>
-
-          <div class="card-content">
-            <div class="project-name-wrap">
-              <h3 class="project-title">CMSingBox</h3>
-              <span class="project-sub">Sing-box 可视化综合管理平台</span>
-            </div>
-            <p class="project-desc">
-              在现代浏览器中轻松完成节点订阅、规则分流、DNS 路由配置、透明代理与系统守护。深度兼容 Linux 原生、Docker Compose、RouterOS 容器及多网段软路由回家分流方案。
-            </p>
-            <div class="chips-group">
-              <span class="chip-item">订阅管理</span>
-              <span class="chip-item">可视化规则分流</span>
-              <span class="chip-item">DNS 分流引擎</span>
-              <span class="chip-item">RouterOS 适配</span>
-              <span class="chip-item">回家服务 (VPN)</span>
-              <span class="chip-item">Docker 部署</span>
-            </div>
-          </div>
-
-          <div class="card-actions-bar">
-            <span class="btn-action-main">
-              <span>文档中心</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div class="projects" id="projectsContainer">
+        <!-- CMSingBox -->
+        <article class="project cm">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 4.2V18h16V8.2l-8 5-8-5zM4.9 6l7.1 4.4L19.1 6H4.9z"/></svg>
             </span>
-            <a class="btn-action-gh" href="https://github.com/qwernot/CM" target="_blank" rel="noopener" aria-label="CMSingBox GitHub 仓库">
-              <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
-              <span>GitHub 源码</span>
-            </a>
+            <div>
+              <div class="p-name">CMSingBox</div>
+              <div class="p-sub">Sing-box 可视化管理平台</div>
+            </div>
+            <span class="p-badge">自托管工具</span>
           </div>
+          <p class="p-desc">在浏览器中完成订阅、节点、分流规则、DNS、透明代理和运行维护。支持 Linux 原生、Docker Compose、RouterOS 容器及多种主路由分流方案。</p>
+          <div class="chips">
+            <span class="chip">订阅管理</span>
+            <span class="chip">可视化分流</span>
+            <span class="chip">DNS 分流</span>
+            <span class="chip">多路由器支持</span>
+            <span class="chip">回家服务</span>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">文档中心 <span class="arrow">→</span></span>
+            <span class="spacer"></span>
+            <a class="btn gh-link" href="https://github.com/qwernot/CM" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+          </div>
+          <a class="card-link" href="/CM/" aria-label="打开 CMSingBox 文档"></a>
         </article>
 
-        <!-- 2. Cosmo Mail -->
-        <article class="project-card card-cosmo" data-category="tool" aria-label="Cosmo Mail 项目卡片">
-          <a class="card-full-link" href="/Cosmomail/" aria-label="打开 Cosmo Mail 官方文档"></a>
-
-          <div class="project-top-bar">
-            <div class="p-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <span class="card-badge">开源 · 隐私守护</span>
-          </div>
-
-          <div class="card-content">
-            <div class="project-name-wrap">
-              <h3 class="project-title">Cosmo Mail</h3>
-              <span class="project-sub">自托管多邮箱统一管理系统</span>
-            </div>
-            <p class="project-desc">
-              所有邮箱，一处抵达。在单一高响应 Web 界面统一管理 QQ、Outlook、Gmail、163 等标准 IMAP 邮箱；单二进制极简部署，增量收信 IDLE 实时唤醒，数据完全保存在自有服务器。
-            </p>
-            <div class="chips-group">
-              <span class="chip-item">多邮箱聚合</span>
-              <span class="chip-item">增量收信 IDLE</span>
-              <span class="chip-item">单文件开箱即用</span>
-              <span class="chip-item">数据完全私有</span>
-              <span class="chip-item">Webhook 消息通知</span>
-              <span class="chip-item">全端 PWA</span>
-            </div>
-          </div>
-
-          <div class="card-actions-bar">
-            <span class="btn-action-main">
-              <span>文档中心</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <!-- Cosmo Mail -->
+        <article class="project cosmo">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 3.9 3.1 7 7 7s7-3.1 7-7a7 7 0 0 0-7-7zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-2 3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM5 16.5c-1.9 1-3 2.4-3 4v1.5h20V20.5c0-1.6-1.1-3-3-4-1.9 1.6-4.4 2.5-7 2.5s-5.1-.9-7-2.5z"/></svg>
             </span>
-            <a class="btn-action-gh" href="https://github.com/qwernot/Cosmomail" target="_blank" rel="noopener" aria-label="Cosmo Mail GitHub 仓库">
-              <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
-              <span>GitHub 源码</span>
-            </a>
+            <div>
+              <div class="p-name">Cosmo Mail</div>
+              <div class="p-sub">自托管多邮箱统一收件箱</div>
+            </div>
+            <span class="p-badge">自托管工具</span>
           </div>
+          <p class="p-desc">所有邮箱，一处抵达。在一个界面管理 QQ、Outlook、Gmail、163 等标准 IMAP 邮箱，单文件运行，数据完全留在自己的服务器上。</p>
+          <div class="chips">
+            <span class="chip">多邮箱归一</span>
+            <span class="chip">增量收信 IDLE</span>
+            <span class="chip">单文件运行</span>
+            <span class="chip">数据自主</span>
+            <span class="chip">Webhook 通知</span>
+            <span class="chip">全端 PWA</span>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">文档中心 <span class="arrow">→</span></span>
+            <span class="spacer"></span>
+            <a class="btn gh-link" href="https://github.com/qwernot/Cosmomail" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+          </div>
+          <a class="card-link" href="/Cosmomail/" aria-label="打开 Cosmo Mail 文档"></a>
         </article>
 
-        <!-- 3. SwiCV Shop -->
-        <article class="project-card card-shop" data-category="service" aria-label="SwiCV Shop 项目卡片">
-          <a class="card-full-link" href="https://shop.swicv.com" target="_blank" rel="noopener" aria-label="直达 SwiCV Shop 商店"></a>
-
-          <div class="project-top-bar">
-            <div class="p-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            </div>
-            <span class="card-badge">7×24h 自动发货</span>
-          </div>
-
-          <div class="card-content">
-            <div class="project-name-wrap">
-              <h3 class="project-title">SwiCV Shop</h3>
-              <span class="project-sub">数字商品与卡密发货服务平台 · shop.swicv.com</span>
-            </div>
-            <p class="project-desc">
-              全自动秒级发货服务：精选游戏点卡代充、海外主流流媒体会员（Netflix/Spotify/YouTube）、正版生产力软件授权许可、全球礼品卡及前沿 AI 生产力工具订阅，付款后凭证即刻自动交付。
-            </p>
-            <div class="chips-group">
-              <span class="chip-item">秒级自动发货</span>
-              <span class="chip-item">游戏充值点卡</span>
-              <span class="chip-item">流媒体会员</span>
-              <span class="chip-item">软件授权密钥</span>
-              <span class="chip-item">全球礼品卡</span>
-              <span class="chip-item">AI 订阅服务</span>
-            </div>
-          </div>
-
-          <div class="card-actions-bar">
-            <span class="btn-action-main">
-              <span>进入商店</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <!-- SwiCV Shop -->
+        <article class="project shop">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 7V6a5 5 0 1 1 10 0v1h4v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7h4zm2 0h6V6a3 3 0 1 0-6 0v1zM7 9H5v11h14V9h-2v2a1 1 0 1 1-2 0V9H9v2a1 1 0 1 1-2 0V9z"/></svg>
             </span>
+            <div>
+              <div class="p-name">SwiCV Shop</div>
+              <div class="p-sub">数字商品自动发货平台 · shop.swicv.com</div>
+            </div>
+            <span class="p-badge">在线商店</span>
           </div>
+          <div class="p-body">
+            <p class="p-desc">买卡密、充值、会员：游戏点卡、流媒体会员、软件授权、礼品卡、AI 工具 —— 付款后自动发货，凭证立即送达。</p>
+            <div class="chips">
+              <span class="chip">卡密自动发货</span>
+              <span class="chip">游戏点卡</span>
+              <span class="chip">流媒体会员</span>
+              <span class="chip">软件授权</span>
+              <span class="chip">礼品卡</span>
+              <span class="chip">AI 工具</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">进入商店 <span class="arrow">→</span></span>
+          </div>
+          <a class="card-link" href="https://shop.swicv.com" target="_blank" rel="noopener" aria-label="进入 SwiCV Shop 商店"></a>
         </article>
 
-        <!-- 4. Cosmo NPS -->
-        <article class="project-card card-nps" data-category="service" aria-label="Cosmo NPS 项目卡片">
-          <a class="card-full-link" href="https://nps.swicv.com" target="_blank" rel="noopener" aria-label="直达 Cosmo NPS 控制台"></a>
-
-          <div class="project-top-bar">
-            <div class="p-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/><polyline points="8 20 12 16 16 20"/></svg>
-            </div>
-            <span class="card-badge">高性能网络映射</span>
-          </div>
-
-          <div class="card-content">
-            <div class="project-name-wrap">
-              <h3 class="project-title">Cosmo NPS</h3>
-              <span class="project-sub">自建高性能内网穿透平台 · nps.swicv.com</span>
-            </div>
-            <p class="project-desc">
-              摆脱公网 IP 限制，将内网 NAS、私有云服务器、本地研发容器与 IoT 智能硬件快速映射至公网。提供多协议隧道转发、带宽精细管理与流量审计，Web 控制台一目了然，客户端支持 Docker 一键接入。
-            </p>
-            <div class="chips-group">
-              <span class="chip-item">内网穿透</span>
-              <span class="chip-item">全类型隧道</span>
-              <span class="chip-item">Web 控制台</span>
-              <span class="chip-item">Docker 客户端</span>
-              <span class="chip-item">带宽精细管控</span>
-              <span class="chip-item">高可用集群</span>
-            </div>
-          </div>
-
-          <div class="card-actions-bar">
-            <span class="btn-action-main">
-              <span>进入控制台</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <!-- Cosmo NPS -->
+        <article class="project nps">
+          <div class="project-top">
+            <span class="p-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
             </span>
+            <div>
+              <div class="p-name">Cosmo NPS</div>
+              <div class="p-sub">自建内网穿透平台 · nps.swicv.com</div>
+            </div>
+            <span class="p-badge">网络平台</span>
           </div>
+          <div class="p-body">
+            <p class="p-desc">没有公网 IP 也能把内网设备和业务映射到公网：多类型隧道、带宽与流量管理，配 Web 控制台，客户端支持 Docker 一键部署。</p>
+            <div class="chips">
+              <span class="chip">内网穿透</span>
+              <span class="chip">多类型隧道</span>
+              <span class="chip">Web 控制台</span>
+              <span class="chip">Docker 客户端</span>
+              <span class="chip">带宽管理</span>
+            </div>
+          </div>
+          <div class="p-actions">
+            <span class="btn primary">进入控制台 <span class="arrow">→</span></span>
+          </div>
+          <a class="card-link" href="https://nps.swicv.com" target="_blank" rel="noopener" aria-label="进入 Cosmo NPS 控制台"></a>
         </article>
       </div>
     </section>
 
-    <!-- 联系方式 (Contact Matrix) -->
-    <section class="section-block" id="contact" aria-label="全渠道联系方式">
-      <div class="section-header-wrap">
-        <div>
-          <div class="section-eyebrow">Get In Touch</div>
-          <h2 class="section-heading">快速联络通道</h2>
-          <p class="section-caption">随时可以通过以下方式与我取得联系，无论是项目技术探讨、自托管交流或是商业合作。</p>
-        </div>
+    <!-- 联系方式 -->
+    <section class="section" id="contact" aria-label="联系方式">
+      <div class="section-heading">
+        <h2>联系我</h2>
+        <p>需要找我时，可以通过下面任意方式。</p>
       </div>
 
-      <div class="contacts-grid">
+      <div class="contacts" id="contactsContainer">
         <!-- QQ -->
-        <a class="contact-card qq" href="tencent://message/?uin=491298200&Site=&Menu=yes" aria-label="通过 QQ 联系何子墨">
-          <div class="c-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2v1h-4V7c0-1.1.9-2 2-2zm-4 9.5c0-.28.22-.5.5-.5h1V12h-1a2.5 2.5 0 0 0 0 5h1v-2h-1c-.28 0-.5-.22-.5-.5zm8 0c0 .28-.22.5-.5.5h-1v2h1a2.5 2.5 0 0 0 0-5h-1v2h1c.28 0 .5.22.5.5zM13 14h-2v-2h2v2z"/></svg>
+        <a class="contact qq" href="tencent://message/?uin=491298200&Site=&Menu=yes" aria-label="通过 QQ 联系何子墨">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2v1h-4V7c0-1.1.9-2 2-2zm-4 9.5c0-.28.22-.5.5-.5h1V12h-1a2.5 2.5 0 0 0 0 5h1v-2h-1c-.28 0-.5-.22-.5-.5zm8 0c0 .28-.22.5-.5.5h-1v2h1a2.5 2.5 0 0 0 0-5h-1v2h1c.28 0 .5.22.5.5zM13 14h-2v-2h2v2z"/></svg>
+          </span>
+          <div class="contact-content">
+            <span class="label">QQ</span>
+            <span class="value">491298200</span>
           </div>
-          <div class="c-info">
-            <div class="c-label">QQ 即时会话</div>
-            <div class="c-value">491298200</div>
-          </div>
-          <div class="c-action-pill">发消息 →</div>
+          <span class="action">发消息 →</span>
         </a>
 
         <!-- 微信 -->
-        <div class="contact-card wechat" id="triggerWechat" role="button" tabindex="0" aria-label="微信联系方式 HT-T-TH">
-          <div class="c-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8.5 2C4.36 2 1 5.13 1 9c0 2.38 1.19 4.47 3 5.74V19l3.28-2.05c.4.05.81.05 1.22.05 4.14 0 7.5-3.13 7.5-7S12.64 2 8.5 2zm8 8c-.28 0-.55.02-.82.05C16.72 11.2 18 13.43 18 16c0 3.31-2.69 6-6 6-.34 0-.67-.03-1-.08L8 24v-3.26C5.36 19.28 3.5 16.82 3.5 14h.01c0-.34.03-.67.08-1C2.22 14.18 1 15.95 1 18c0 2.38 1.19 4.47 3 5.74V24l3.28-2.05c.4.05.81.05 1.22.05C12.64 22 16 18.87 16 15c0-1.72-.59-3.3-1.58-4.55A5.97 5.97 0 0 1 16.5 10z"/></svg>
+        <div class="contact wechat" id="copyWechat" role="button" tabindex="0" aria-label="点击复制微信号 HT-T-TH">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8.5 2C4.36 2 1 5.13 1 9c0 2.38 1.19 4.47 3 5.74V19l3.28-2.05c.4.05.81.05 1.22.05 4.14 0 7.5-3.13 7.5-7S12.64 2 8.5 2zm8 8c-.28 0-.55.02-.82.05C16.72 11.2 18 13.43 18 16c0 3.31-2.69 6-6 6-.34 0-.67-.03-1-.08L8 24v-3.26C5.36 19.28 3.5 16.82 3.5 14h.01c0-.34.03-.67.08-1C2.22 14.18 1 15.95 1 18c0 2.38 1.19 4.47 3 5.74V24l3.28-2.05c.4.05.81.05 1.22.05C12.64 22 16 18.87 16 15c0-1.72-.59-3.3-1.58-4.55A5.97 5.97 0 0 1 16.5 10z"/></svg>
+          </span>
+          <div class="contact-content">
+            <span class="label">微信</span>
+            <span class="value">HT-T-TH</span>
           </div>
-          <div class="c-info">
-            <div class="c-label">微信 WeChat</div>
-            <div class="c-value">HT-T-TH</div>
-          </div>
-          <div class="c-action-pill" id="wechatActionText">点击复制</div>
+          <span class="action" id="wechatAction">复制</span>
         </div>
 
-        <!-- 邮件 -->
-        <a class="contact-card mail" href="mailto:491298200@qq.com?subject=%E4%BD%A0%E5%A5%BD%E4%BD%95%E5%AD%90%E5%A2%A0" aria-label="发送邮件给何子墨">
-          <div class="c-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <!-- 邮箱 -->
+        <a class="contact mail" href="mailto:491298200@qq.com?subject=%E4%BD%A0%E5%A5%BD" aria-label="给何子墨发送邮件">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+          <div class="contact-content">
+            <span class="label">邮箱</span>
+            <span class="value">491298200@qq.com</span>
           </div>
-          <div class="c-info">
-            <div class="c-label">电子邮件</div>
-            <div class="c-value">491298200@qq.com</div>
-          </div>
-          <div class="c-action-pill">写邮件 →</div>
+          <span class="action">写邮件 →</span>
         </a>
 
         <!-- Telegram -->
-        <a class="contact-card telegram" href="https://t.me/zmswaa" target="_blank" rel="noopener" aria-label="通过 Telegram 联系何子墨">
-          <div class="c-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        <a class="contact telegram" href="https://t.me/zmswaa" target="_blank" rel="noopener" aria-label="通过 Telegram 联系何子墨">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </span>
+          <div class="contact-content">
+            <span class="label">Telegram</span>
+            <span class="value">@zmswaa</span>
           </div>
-          <div class="c-info">
-            <div class="c-label">Telegram</div>
-            <div class="c-value">@zmswaa</div>
-          </div>
-          <div class="c-action-pill">发送私聊 →</div>
+          <span class="action">发消息 →</span>
         </a>
       </div>
     </section>
-  </main>
 
-  <!-- 微信专属弹窗 -->
-  <div class="modal-backdrop" id="wechatModal" role="dialog" aria-modal="true" aria-labelledby="wechatModalTitle">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3 class="modal-title" id="wechatModalTitle">添加微信好友</h3>
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="关闭弹窗">&times;</button>
-      </div>
-      <p class="modal-tips">微信号已自动复制到剪贴板，您可以在微信中直接粘贴并搜索：</p>
-      <div class="wechat-id-badge">HT-T-TH</div>
-      <button class="btn btn-primary" id="modalCopyBtn" style="width: 100%;" type="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-        <span>再次复制微信号</span>
-      </button>
-    </div>
+    <!-- 页脚 -->
+    <footer class="footer">
+      © 2026 何子墨 · <a href="/">666228.xyz</a> · <a href="/CM/">CMSingBox</a> · <a href="/Cosmomail/">Cosmo Mail</a> · <a href="https://nps.swicv.com" target="_blank" rel="noopener">Cosmo NPS</a> · <a href="https://shop.swicv.com" target="_blank" rel="noopener">SwiCV Shop</a>
+    </footer>
   </div>
 
-  <!-- 浮动 Toast 消息通知 -->
-  <div class="toast-pill" id="toastPill" role="status" aria-live="polite">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-    <span id="toastText">已复制微信号到剪贴板</span>
+  <!-- 苹果灵动岛 Toast 胶囊 -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>微信号已复制到剪贴板</span>
   </div>
 
-  <!-- 页脚 (Footer) -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-left">
-        <div>© 2026 何子墨 · 保留所有权利</div>
-      </div>
-
-      <div class="footer-links-row">
-        <a class="footer-link" href="/CM/">CMSingBox</a>
-        <span style="color: var(--border-subtle);">/</span>
-        <a class="footer-link" href="/Cosmomail/">Cosmo Mail</a>
-        <span style="color: var(--border-subtle);">/</span>
-        <a class="footer-link" href="https://shop.swicv.com" target="_blank" rel="noopener">SwiCV Shop</a>
-        <span style="color: var(--border-subtle);">/</span>
-        <a class="footer-link" href="https://nps.swicv.com" target="_blank" rel="noopener">Cosmo NPS</a>
-        <span style="color: var(--border-subtle);">/</span>
-        <a class="footer-link" href="https://github.com/qwernot" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       纯原生高性能 JavaScript 交互引擎
-       ============================================================ -->
   <script>
+    // ── 1. 苹果动态昼夜主题切换引擎 ──
     (() => {
-      "use strict";
+      const toggleBtn = document.getElementById("themeToggle");
+      const root = document.documentElement;
 
-      // 1. 动态实时北京时钟 (UTC+8)
-      const clockEl = document.getElementById("liveClock");
-      function updateLiveClock() {
-        if (!clockEl) return;
-        const now = new Date();
-        // 格式化为 UTC+8 时间
-        const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
-        const pad = (n) => String(n).padStart(2, "0");
-        const h = pad(beijingTime.getHours());
-        const m = pad(beijingTime.getMinutes());
-        const s = pad(beijingTime.getSeconds());
-        clockEl.textContent = `北京时间 (UTC+8) ${h}:${m}:${s}`;
-      }
-      updateLiveClock();
-      setInterval(updateLiveClock, 1000);
+      const savedTheme = localStorage.getItem("apple-theme");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
 
-      // 2. 现代科技粒子星空网格背景 (极轻量 30-40 粒子，节能高效)
-      const canvas = document.getElementById("particles");
-      if (canvas) {
-        const ctx = canvas.getContext("2d");
-        let w = (canvas.width = window.innerWidth);
-        let h = (canvas.height = window.innerHeight);
-
-        window.addEventListener("resize", () => {
-          w = canvas.width = window.innerWidth;
-          h = canvas.height = window.innerHeight;
-        }, { passive: true });
-
-        const count = Math.min(36, Math.floor((w * h) / 32000));
-        const particles = Array.from({ length: count }, () => ({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
-          radius: Math.random() * 1.5 + 0.6,
-          alpha: Math.random() * 0.25 + 0.08,
-        }));
-
-        let frame = 0;
-        function renderParticles() {
-          if (++frame & 1) {
-            requestAnimationFrame(renderParticles);
-            return;
-          }
-          ctx.clearRect(0, 0, w, h);
-
-          for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            p.x += p.vx;
-            p.y += p.vy;
-
-            if (p.x < 0) p.x = w;
-            else if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h;
-            else if (p.y > h) p.y = 0;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(165, 180, 252, ${p.alpha})`;
-            ctx.fill();
-
-            // 附近粒子微妙连线 (距离 < 110px)
-            for (let j = i + 1; j < particles.length; j++) {
-              const p2 = particles[j];
-              const dx = p.x - p2.x;
-              const dy = p.y - p2.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < 110) {
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(165, 180, 252, ${0.1 * (1 - dist / 110)})`;
-                ctx.stroke();
-              }
-            }
-          }
-          requestAnimationFrame(renderParticles);
+      function applyTheme(theme) {
+        if (theme === "light") {
+          root.setAttribute("data-theme", "light");
+        } else {
+          root.removeAttribute("data-theme");
         }
-        renderParticles();
+        localStorage.setItem("apple-theme", theme);
       }
 
-      // 3. 鼠标跟随流光聚光灯 (Spotlight Cursor Effect on Cards)
-      const cards = document.querySelectorAll(".project-card");
-      cards.forEach((card) => {
+      applyTheme(initialTheme);
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+          const isLight = root.getAttribute("data-theme") === "light";
+          applyTheme(isLight ? "dark" : "light");
+        });
+      }
+
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (!localStorage.getItem("apple-theme")) {
+          applyTheme(e.matches ? "dark" : "light");
+        }
+      });
+    })();
+
+    // ── 2. 苹果毛玻璃鼠标光晕跟随 (Dynamic Specular Sheen) ──
+    (() => {
+      const interactiveCards = document.querySelectorAll(".project, .contact");
+      interactiveCards.forEach((card) => {
         card.addEventListener("mousemove", (e) => {
           const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty("--mouse-x", `${x}px`);
-          card.style.setProperty("--mouse-y", `${y}px`);
+          card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+          card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
         });
       });
+    })();
 
-      // 4. 分类筛选 Tab 联动 (全部 / 开源工具 / 在线服务)
-      const tabButtons = document.querySelectorAll(".tab-btn");
-      const projectCards = document.querySelectorAll(".project-card");
+    // ── 3. 复制微信交互 ──
+    (() => {
+      const btn = document.getElementById("copyWechat");
+      const action = document.getElementById("wechatAction");
+      const toast = document.getElementById("toast");
+      if (!btn) return;
 
-      tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          tabButtons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          const filter = btn.getAttribute("data-filter");
-
-          projectCards.forEach((card) => {
-            const cat = card.getAttribute("data-category");
-            if (filter === "all" || cat === filter) {
-              card.style.display = "flex";
-              setTimeout(() => {
-                card.style.opacity = "1";
-                card.style.transform = "scale(1)";
-              }, 10);
-            } else {
-              card.style.display = "none";
-              card.style.opacity = "0";
-              card.style.transform = "scale(0.96)";
-            }
-          });
-        });
-      });
-
-      // 5. Toast 提示工具
-      const toastEl = document.getElementById("toastPill");
-      const toastText = document.getElementById("toastText");
-      let toastTimer = null;
-
-      function showToast(msg) {
-        if (!toastEl) return;
-        toastText.textContent = msg;
-        toastEl.classList.add("show");
-        if (toastTimer) clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toastEl.classList.remove("show");
-        }, 2600);
-      }
-
-      // 6. 微信复制与模态框交互
-      const wechatCard = document.getElementById("triggerWechat");
-      const wechatModal = document.getElementById("wechatModal");
-      const modalCloseBtn = document.getElementById("modalCloseBtn");
-      const modalCopyBtn = document.getElementById("modalCopyBtn");
-      const wechatActionText = document.getElementById("wechatActionText");
-
-      async function copyWeChatID() {
-        const text = "HT-T-TH";
+      async function copy() {
         try {
-          await navigator.clipboard.writeText(text);
-          showToast("已成功复制微信号: HT-T-TH");
-          if (wechatActionText) {
-            wechatActionText.textContent = "已复制 ✓";
-            setTimeout(() => {
-              wechatActionText.textContent = "点击复制";
-            }, 2000);
-          }
+          await navigator.clipboard.writeText("HT-T-TH");
+          action.textContent = "已复制 ✓";
+          toast.classList.add("show");
+          setTimeout(() => {
+            action.textContent = "复制";
+            toast.classList.remove("show");
+          }, 2200);
         } catch {
-          showToast("微信号: HT-T-TH");
+          action.textContent = "HT-T-TH";
+          setTimeout(() => { action.textContent = "复制"; }, 2500);
         }
       }
 
-      if (wechatCard) {
-        wechatCard.addEventListener("click", () => {
-          copyWeChatID();
-          if (wechatModal) wechatModal.classList.add("open");
-        });
-        wechatCard.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            copyWeChatID();
-            if (wechatModal) wechatModal.classList.add("open");
-          }
-        });
-      }
-
-      if (modalCloseBtn && wechatModal) {
-        modalCloseBtn.addEventListener("click", () => {
-          wechatModal.classList.remove("open");
-        });
-        wechatModal.addEventListener("click", (e) => {
-          if (e.target === wechatModal) {
-            wechatModal.classList.remove("open");
-          }
-        });
-      }
-
-      if (modalCopyBtn) {
-        modalCopyBtn.addEventListener("click", () => {
-          copyWeChatID();
-        });
-      }
-
-      // ESC 键关闭模态窗
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && wechatModal && wechatModal.classList.contains("open")) {
-          wechatModal.classList.remove("open");
+      btn.addEventListener("click", copy);
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          copy();
         }
       });
     })();
