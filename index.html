@@ -8,102 +8,142 @@
   <link rel="icon" href="/avatar.png" type="image/png">
   <link rel="apple-touch-icon" href="/avatar.png">
   <style>
+    /* ============================================================
+       Apple Liquid Glass Design System (苹果原生液态毛玻璃规范)
+       ============================================================ */
     :root {
-      --bg: #090a10;
-      --card-bg: rgba(18, 20, 32, 0.65);
-      --card-bg-hover: rgba(25, 28, 46, 0.85);
-      --line: rgba(255, 255, 255, 0.07);
-      --line-hover: rgba(255, 255, 255, 0.18);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --primary: #6366f1;
-      --primary-hover: #7175f3;
-      --green: #22c55e;
-      --blue: #3b82f6;
-      --rose: #f43f5e;
-      --cyan: #06b6d4;
-      --purple: #8b5cf6;
+      --system-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono-font: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+      
+      /* 苹果玻璃质感色值 */
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-bg-hover: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-border-hover: rgba(255, 255, 255, 0.32);
+      --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+      --glass-highlight-hover: inset 0 1px 2px 0 rgba(255, 255, 255, 0.45);
+      
+      /* 文字阶梯 */
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.75);
+      --text-tertiary: rgba(255, 255, 255, 0.48);
+
+      /* 苹果官方系统色 (iOS / macOS HIG) */
+      --apple-blue: #0a84ff;
+      --apple-blue-hover: #0071e3;
+      --apple-green: #30d158;
+      --apple-purple: #bf5af2;
+      --apple-indigo: #5e5ce6;
+      --apple-teal: #64d2ff;
+      --apple-red: #ff453a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
       scroll-behavior: smooth;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--text);
-      background-color: var(--bg);
+      font-family: var(--system-font);
+      color: var(--text-primary);
+      background-color: #07090e;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
+    /* 苹果壁纸级流体渐变背景（让毛玻璃有光可折射） */
     body {
       min-height: 100vh;
       margin: 0;
-      background: radial-gradient(circle at 50% 0%, #16152e 0%, #0b0c14 40%, #06060a 100%);
+      background-color: #080a11;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(94, 92, 230, 0.4) 0px, transparent 55%),
+        radial-gradient(at 85% 10%, rgba(191, 90, 242, 0.32) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(10, 132, 255, 0.28) 0px, transparent 60%),
+        radial-gradient(at 80% 85%, rgba(48, 209, 88, 0.22) 0px, transparent 50%),
+        radial-gradient(at 20% 90%, rgba(100, 210, 255, 0.25) 0px, transparent 50%);
+      background-attachment: fixed;
+      background-size: cover;
       overflow-x: hidden;
       position: relative;
     }
 
+    /* 苹果壁纸柔性环境流光层（慢速无感呼吸浮动） */
+    .apple-mesh-aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.38;
+      will-change: transform;
+      animation: floatMesh 20s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      top: -150px;
+      left: 15%;
+      background: radial-gradient(circle, #5e5ce6 0%, #0a84ff 60%, transparent 80%);
+    }
+
+    .orb-2 {
+      width: 520px;
+      height: 520px;
+      bottom: -100px;
+      right: 10%;
+      background: radial-gradient(circle, #bf5af2 0%, #ff375f 60%, transparent 80%);
+      animation-delay: -10s;
+    }
+
+    @keyframes floatMesh {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(60px, 40px) scale(1.1); }
+      100% { transform: translate(-40px, 60px) scale(0.96); }
+    }
+
     ::selection {
-      background: rgba(99, 102, 241, 0.35);
+      background: rgba(10, 132, 255, 0.4);
       color: #fff;
     }
 
-    /* 粒子背景 */
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* 柔和环境光晕 */
-    .glow-blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.25;
-      z-index: 0;
-      pointer-events: none;
-      will-change: transform;
-      animation: floatBlob 16s ease-in-out infinite alternate;
-    }
-    .glow-1 {
-      width: 500px; height: 500px;
-      top: -160px; left: -100px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, transparent 70%);
-    }
-    .glow-2 {
-      width: 460px; height: 460px;
-      bottom: -120px; right: -80px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 70%);
-      animation-delay: -8s;
-    }
-
-    @keyframes floatBlob {
-      0%   { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(50px, 35px) scale(1.12); }
-    }
-
-    /* ── 顶部导航 ── */
-    .topbar {
+    /* ── 顶部浮动毛玻璃胶囊导航栏 (Apple Island Topbar) ── */
+    .topbar-wrapper {
       position: sticky;
-      top: 0;
+      top: 18px;
       z-index: 100;
-      background: rgba(9, 10, 16, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topinner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 60px;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      height: 56px;
+      padding: 0 16px 0 20px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      background: rgba(18, 22, 34, 0.65);
+      backdrop-filter: blur(35px) saturate(190%);
+      -webkit-backdrop-filter: blur(35px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      box-shadow: 
+        0 16px 36px rgba(0, 0, 0, 0.35),
+        var(--glass-highlight);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .topbar:hover {
+      border-color: var(--glass-border-hover);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.45),
+        var(--glass-highlight-hover);
     }
 
     .brand {
@@ -122,16 +162,16 @@
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      border: 1px solid var(--line);
-      background: #111222;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
       object-fit: cover;
       display: block;
     }
 
     .brand .domain {
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       font-weight: 400;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-family: var(--mono-font);
       font-size: 13px;
     }
 
@@ -143,10 +183,10 @@
     }
 
     .topnav a {
-      padding: 7px 14px;
-      border-radius: 8px;
-      color: var(--text-muted);
-      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-size: 13.5px;
       font-weight: 500;
       text-decoration: none;
       white-space: nowrap;
@@ -155,7 +195,7 @@
 
     .topnav a:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .topnav a.gh {
@@ -165,21 +205,21 @@
     }
 
     .topnav a.gh svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       fill: currentColor;
     }
 
-    /* ── 主体布局 ── */
+    /* ── 页面主体 ── */
     .wrap {
       position: relative;
       z-index: 1;
       max-width: 1080px;
       margin: 0 auto;
-      padding: 60px 24px 80px;
+      padding: 40px 20px 80px;
     }
 
-    section { scroll-margin-top: 80px; }
+    section { scroll-margin-top: 90px; }
 
     /* ── Hero 迎宾区 ── */
     .hero {
@@ -187,7 +227,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 36px;
-      padding: 20px 0 40px;
+      padding: 30px 0 44px;
     }
 
     .tag {
@@ -195,21 +235,23 @@
       align-items: center;
       gap: 6px;
       padding: 5px 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 999px;
-      color: #a5b4fc;
+      color: rgba(255, 255, 255, 0.85);
       font-size: 12.5px;
       font-weight: 500;
-      background: rgba(99, 102, 241, 0.08);
-      letter-spacing: 0.3px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--glass-highlight);
     }
 
     h1 {
-      margin: 20px 0 16px;
+      margin: 18px 0 14px;
       font-size: clamp(38px, 6vw, 60px);
       line-height: 1.1;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -1.2px;
       color: #fff;
     }
 
@@ -230,76 +272,92 @@
 
     .summary {
       max-width: 520px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 16px;
       line-height: 1.8;
+      font-weight: 400;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
 
+    /* 苹果风格晶圆按钮 */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 11px 20px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
+      justify-content: center;
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #ffffff;
       font-size: 14.5px;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--glass-highlight);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.09);
-      border-color: var(--line-hover);
-      color: #fff;
+      background: var(--glass-bg-hover);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), var(--glass-highlight-hover);
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: var(--apple-blue);
       border-color: transparent;
-      color: #fff;
-      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
+      box-shadow: 
+        0 6px 20px rgba(10, 132, 255, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
     .btn.primary:hover {
-      background: linear-gradient(135deg, #7175f3, #5d55ec);
-      box-shadow: 0 8px 26px rgba(99, 102, 241, 0.5);
+      background: var(--apple-blue-hover);
+      box-shadow: 
+        0 8px 28px rgba(10, 132, 255, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
     }
 
-    /* 个人标志与头像 */
+    /* 个人资料卡片 */
     .signature {
       flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 16px;
+      padding: 12px 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), var(--glass-highlight);
     }
 
     .avatar-wrap {
       position: relative;
-      width: 76px;
-      height: 76px;
+      width: 72px;
+      height: 72px;
     }
 
     .mark {
-      width: 76px;
-      height: 76px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      background: #111222;
+      border: 2px solid rgba(255, 255, 255, 0.28);
+      background: rgba(20, 24, 38, 0.8);
       display: block;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
     .sig-info {
@@ -319,7 +377,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       font-size: 13px;
       font-weight: 500;
     }
@@ -328,8 +386,8 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
+      background: var(--apple-green);
+      box-shadow: 0 0 8px var(--apple-green);
       animation: blink 2.5s ease-in-out infinite;
     }
 
@@ -340,28 +398,28 @@
 
     /* ── 区块标题 ── */
     .section {
-      margin-top: 76px;
+      margin-top: 70px;
     }
 
     .section-heading {
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .section-heading h2 {
       color: #fff;
       font-size: clamp(24px, 3.5vw, 32px);
       font-weight: 800;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
     }
 
     .section-heading p {
       margin-top: 8px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 15px;
       line-height: 1.7;
     }
 
-    /* ── 项目卡片 ── */
+    /* ── 苹果液态毛玻璃卡片 (Apple Glass Cards) ── */
     .projects {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -371,23 +429,31 @@
     .project {
       display: flex;
       flex-direction: column;
-      padding: 30px 28px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(40px) saturate(190%);
+      -webkit-backdrop-filter: blur(40px) saturate(190%);
+      border: 1px solid var(--glass-border);
       text-decoration: none;
       position: relative;
       overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 
+        0 20px 45px -10px rgba(0, 0, 0, 0.35),
+        var(--glass-highlight);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                  background 0.3s ease, 
+                  border-color 0.3s ease;
     }
 
     .project:hover {
       transform: translateY(-4px);
-      background: var(--card-bg-hover);
-      border-color: var(--line-hover);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--glass-border-hover);
+      box-shadow: 
+        0 30px 65px -10px rgba(0, 0, 0, 0.48),
+        var(--glass-highlight-hover);
     }
 
     .project-top {
@@ -398,36 +464,36 @@
       z-index: 1;
     }
 
+    /* iOS 风格 App 图标 (圆角拟物微光) */
     .p-icon {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
+      border-radius: 15px;
       color: #fff;
       flex-shrink: 0;
+      box-shadow: 
+        0 8px 22px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45);
     }
 
-    .p-icon svg { width: 24px; height: 24px; fill: currentColor; }
+    .p-icon svg { width: 26px; height: 26px; fill: currentColor; }
 
     .project.cm .p-icon {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
-      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+      background: linear-gradient(145deg, #5e5ce6, #3b3ac4);
     }
 
     .project.cosmo .p-icon {
-      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-      box-shadow: 0 6px 18px rgba(139, 92, 246, 0.35);
+      background: linear-gradient(145deg, #bf5af2, #9a3cd2);
     }
 
     .project.shop .p-icon {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.3);
+      background: linear-gradient(145deg, #30d158, #20a040);
     }
 
     .project.nps .p-icon {
-      background: linear-gradient(135deg, #06b6d4, #0284c7);
-      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.3);
+      background: linear-gradient(145deg, #64d2ff, #0091ff);
     }
 
     /* 横向通栏卡片 */
@@ -436,7 +502,7 @@
       grid-column: 1 / -1;
       flex-direction: row;
       align-items: flex-start;
-      gap: 22px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
@@ -459,7 +525,7 @@
     }
 
     .project.shop .chips,
-    .project.nps .chips { margin-top: 12px; }
+    .project.nps .chips { margin-top: 14px; }
 
     .p-name {
       color: #fff;
@@ -469,20 +535,22 @@
     }
 
     .p-sub {
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       font-size: 13px;
       margin-top: 2px;
+      font-weight: 500;
     }
 
     .p-desc {
       margin-top: 18px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 14.5px;
       line-height: 1.8;
       position: relative;
       z-index: 1;
     }
 
+    /* 苹果风格标签胶囊 (Glass Chips) */
     .chips {
       display: flex;
       flex-wrap: wrap;
@@ -493,18 +561,23 @@
     }
 
     .chip {
-      padding: 4px 11px;
-      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 12px;
+      font-weight: 500;
       white-space: nowrap;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
     }
 
     .project:hover .chip {
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.11);
       color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
     }
 
     .p-actions {
@@ -513,15 +586,15 @@
       gap: 10px;
       margin-top: 24px;
       padding-top: 20px;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       position: relative;
       z-index: 1;
     }
 
     .p-actions .btn {
-      padding: 8px 16px;
+      padding: 8px 18px;
       font-size: 13.5px;
-      border-radius: 8px;
+      border-radius: 999px;
     }
 
     .p-actions .spacer { flex: 1; }
@@ -539,7 +612,7 @@
       pointer-events: auto;
     }
 
-    /* ── 联系方式 ── */
+    /* ── 苹果风格联络卡片 (Contact Matrix) ── */
     .contacts {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -553,24 +626,29 @@
       gap: 16px;
       align-items: center;
       padding: 16px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(35px) saturate(180%);
+      -webkit-backdrop-filter: blur(35px) saturate(180%);
+      border: 1px solid var(--glass-border);
       color: inherit;
       text-decoration: none;
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.22),
+        var(--glass-highlight);
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
     }
 
     .contact:hover {
       transform: translateY(-3px);
-      border-color: var(--line-hover);
-      background: var(--card-bg-hover);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: var(--glass-border-hover);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 18px 40px rgba(0, 0, 0, 0.35),
+        var(--glass-highlight-hover);
     }
 
     .icon {
@@ -584,19 +662,22 @@
       position: relative;
       z-index: 1;
       flex-shrink: 0;
+      box-shadow: 
+        0 6px 16px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
     }
 
     .icon svg { width: 22px; height: 22px; fill: currentColor; }
 
-    .contact.qq .icon       { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35); }
-    .contact.wechat .icon   { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35); }
-    .contact.mail .icon     { background: linear-gradient(135deg, #f43f5e, #e11d48); box-shadow: 0 6px 18px rgba(244, 63, 94, 0.35); }
-    .contact.telegram .icon { background: linear-gradient(135deg, #0284c7, #0369a1); box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35); }
+    .contact.qq .icon       { background: linear-gradient(145deg, #0a84ff, #0066cc); }
+    .contact.wechat .icon   { background: linear-gradient(145deg, #30d158, #209940); }
+    .contact.mail .icon     { background: linear-gradient(145deg, #ff453a, #cc2218); }
+    .contact.telegram .icon { background: linear-gradient(145deg, #64d2ff, #0a84ff); }
 
     .label {
       display: block;
-      margin-bottom: 3px;
-      color: var(--text-dim);
+      margin-bottom: 2px;
+      color: var(--text-tertiary);
       font-size: 12.5px;
       font-weight: 500;
     }
@@ -607,45 +688,61 @@
       font-size: 17px;
       font-weight: 700;
       color: #fff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-family: var(--mono-font);
       letter-spacing: -0.3px;
     }
 
     .action {
       padding: 6px 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 999px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 13px;
       font-weight: 500;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
       white-space: nowrap;
+      box-shadow: var(--glass-highlight);
       transition: all 0.2s ease;
     }
 
     .contact:hover .action {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       color: #fff;
-      border-color: var(--line-hover);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
+    /* 苹果灵动岛式动态反馈胶囊 (Apple Dynamic Island Toast) */
     .toast {
       position: fixed;
-      bottom: 24px;
+      top: 24px;
       left: 50%;
-      transform: translateX(-50%) translateY(40px);
+      transform: translateX(-50%) translateY(-60px);
       z-index: 1000;
-      background: rgba(18, 20, 32, 0.95);
-      border: 1px solid var(--line-hover);
-      padding: 9px 20px;
+      background: rgba(24, 28, 44, 0.88);
+      backdrop-filter: blur(35px) saturate(190%);
+      -webkit-backdrop-filter: blur(35px) saturate(190%);
+      border: 1px solid var(--glass-border-hover);
+      padding: 9px 22px;
       border-radius: 999px;
-      color: var(--green);
+      color: #fff;
       font-size: 13.5px;
       font-weight: 600;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.5),
+        var(--glass-highlight);
       opacity: 0;
       pointer-events: none;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .toast svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--apple-green);
     }
 
     .toast.show {
@@ -655,18 +752,18 @@
 
     /* ── 页脚 ── */
     .footer {
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 80px;
-      padding: 28px 24px;
+      padding: 30px 20px;
       text-align: center;
-      color: var(--text-dim);
+      color: var(--text-tertiary);
       font-size: 13px;
       position: relative;
       z-index: 1;
     }
 
     .footer a {
-      color: var(--text-muted);
+      color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -675,11 +772,12 @@
       color: #fff;
     }
 
-    /* ── 响应式适配 ── */
+    /* ── 移动端适配 ── */
     @media (max-width: 860px) {
-      .wrap { padding: 40px 16px 60px; }
+      .topbar-wrapper { padding: 0 12px; }
+      .wrap { padding: 30px 14px 60px; }
       .hero { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .signature { order: -1; }
+      .signature { order: -1; width: 100%; justify-content: flex-start; }
       .projects, .contacts { grid-template-columns: 1fr; }
       .project.shop, .project.nps { flex-direction: column; gap: 0; }
       .project.shop .p-body, .project.nps .p-body { flex: 0 0 auto; margin-top: 18px; }
@@ -689,13 +787,16 @@
   </style>
 </head>
 <body>
-  <canvas id="particles" aria-hidden="true"></canvas>
-  <div class="glow-blob glow-1" aria-hidden="true"></div>
-  <div class="glow-blob glow-2" aria-hidden="true"></div>
+  <!-- 苹果壁纸级背景流光层 -->
+  <div class="apple-mesh-aurora" aria-hidden="true">
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+  </div>
 
-  <header class="topbar">
-    <div class="topinner">
-      <a class="brand" href="/">
+  <!-- 顶部悬浮毛玻璃胶囊导航栏 (Apple Island Topbar) -->
+  <div class="topbar-wrapper">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="首页">
         <img src="/avatar.png" alt="何子墨">
         <span>何子墨 <span class="domain">· 666228.xyz</span></span>
       </a>
@@ -707,11 +808,11 @@
           GitHub
         </a>
       </nav>
-    </div>
-  </header>
+    </header>
+  </div>
 
   <div class="wrap">
-    <!-- Hero -->
+    <!-- Hero 迎宾区 -->
     <section class="hero" aria-label="个人简介">
       <div>
         <div class="tag">✦ 个人主页 · 666228.xyz</div>
@@ -917,53 +1018,13 @@
     </footer>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">✓ 微信号已复制</div>
+  <!-- 苹果灵动岛 Toast 胶囊 -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>微信号已复制到剪贴板</span>
+  </div>
 
   <script>
-    // 轻量粒子背景
-    (() => {
-      const c = document.getElementById("particles");
-      const ctx = c.getContext("2d");
-      let W, H, dots = [];
-
-      function resize() {
-        W = c.width = window.innerWidth;
-        H = c.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener("resize", resize, { passive: true });
-
-      const COUNT = Math.min(35, Math.floor((W * H) / 32000));
-      for (let i = 0; i < COUNT; i++) {
-        dots.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          r: Math.random() * 1.3 + 0.5,
-          o: Math.random() * 0.2 + 0.06
-        });
-      }
-
-      let tick = 0;
-      function draw() {
-        if (++tick & 1) { requestAnimationFrame(draw); return; }
-        ctx.clearRect(0, 0, W, H);
-        for (let i = 0; i < dots.length; i++) {
-          const a = dots[i];
-          a.x += a.vx; a.y += a.vy;
-          if (a.x < 0) a.x = W; if (a.x > W) a.x = 0;
-          if (a.y < 0) a.y = H; if (a.y > H) a.y = 0;
-          ctx.beginPath();
-          ctx.arc(a.x, a.y, a.r, 0, 6.283);
-          ctx.fillStyle = `rgba(255, 255, 255, ${a.o})`;
-          ctx.fill();
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
     // 复制微信
     (() => {
       const btn = document.getElementById("copyWechat");
@@ -979,7 +1040,7 @@
           setTimeout(() => {
             action.textContent = "复制";
             toast.classList.remove("show");
-          }, 2000);
+          }, 2200);
         } catch {
           action.textContent = "HT-T-TH";
           setTimeout(() => { action.textContent = "复制"; }, 2500);
