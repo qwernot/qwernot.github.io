@@ -291,6 +291,8 @@
       border-radius: 999px;
       box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.22), var(--glass-highlight);
       transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-wrap: nowrap;
     }
 
     .brand-group {
@@ -299,6 +301,7 @@
       gap: 12px;
       text-decoration: none;
       color: inherit;
+      flex-shrink: 0;
     }
 
     .brand-name {
@@ -319,6 +322,7 @@
       font-size: 12px;
       font-weight: 500;
       color: var(--text-secondary);
+      flex-shrink: 0;
     }
 
     .status-dot {
@@ -339,6 +343,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
     }
 
     .nav-link-item {
@@ -349,11 +355,76 @@
       padding: 6px 12px;
       border-radius: 999px;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
 
     .nav-link-item:hover {
       color: var(--text-primary);
       background: var(--glass-bg-hover);
+    }
+
+    /* 移动端顶栏专用适配：杜绝折行，优化紧凑度 */
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 16px 14px 60px;
+      }
+
+      .topbar {
+        top: 10px;
+        margin-bottom: 22px;
+      }
+
+      .topbar-pill {
+        height: 48px;
+        padding: 0 8px 0 14px;
+      }
+
+      .brand-group {
+        gap: 8px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      /* 移动端隐藏顶栏冗余的状态胶囊（下方名片已有完整在线状态），彻底杜绝双行折行 */
+      .status-dot-wrap {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: 4px;
+      }
+
+      .nav-link-item {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+
+      .theme-toggle-btn {
+        width: 34px;
+        height: 34px;
+      }
+
+      .theme-toggle-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .topbar-pill {
+        padding: 0 6px 0 10px;
+      }
+
+      .nav-actions {
+        gap: 2px;
+      }
+
+      .nav-link-item {
+        font-size: 11px;
+        padding: 4px 6px;
+      }
     }
 
     /* 昼夜切换晶圆按钮 */
@@ -416,6 +487,18 @@
       .hero-wrap {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        padding: 26px 20px;
+      }
+      .hero-title {
+        font-size: 28px;
+      }
+      .profile-card {
+        padding: 24px 18px;
       }
     }
 
