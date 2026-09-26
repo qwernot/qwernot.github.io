@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>何子墨 · 个人主页 | 666228.xyz</title>
-  <meta name="description" content="何子墨的个人主页与技术门户：精选自托管工具 CMSingBox、Cosmo Mail、自建内网穿透 Cosmo NPS 与数字商店 SwiCV Shop，配套完整文档中心与快速联络通道。">
-  <meta name="keywords" content="何子墨, 666228.xyz, CMSingBox, Cosmo Mail, Cosmo NPS, SwiCV Shop, 内网穿透, Sing-box, 自托管, 个人主页">
+  <meta name="description" content="何子墨的个人主页与技术门户：精选自托管工具 CMSingBox、Cosmo Mail、Cosmo 2FA 与 Cosmo NPS，配备完整文档中心、数字商店购买与快速联络通道。">
+  <meta name="keywords" content="何子墨, 666228.xyz, CMSingBox, Cosmo Mail, Cosmo 2FA, Cosmo NPS, SwiCV Shop, 内网穿透, Sing-box, 自托管, 个人主页">
   <meta name="author" content="何子墨">
 
   <!-- OpenGraph / Social Meta -->
@@ -363,6 +363,20 @@
       background: var(--glass-bg-hover);
     }
 
+    .nav-link-shop {
+      color: var(--apple-blue);
+      font-weight: 600;
+    }
+
+    .nav-link-shop:hover {
+      color: var(--apple-blue-hover);
+      background: var(--chip-bg-hover);
+    }
+
+    .nav-mobile {
+      display: none;
+    }
+
     /* 移动端顶栏专用适配：杜绝折行，优化紧凑度 */
     @media (max-width: 640px) {
       .page-wrap {
@@ -409,6 +423,16 @@
       .theme-toggle-btn svg {
         width: 16px;
         height: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-desktop {
+        display: none;
+      }
+
+      .nav-mobile {
+        display: inline;
       }
     }
 
@@ -1315,8 +1339,9 @@
         </a>
 
         <div class="nav-actions">
-          <a class="nav-link-item" href="#projects">项目与服务</a>
-          <a class="nav-link-item" href="#contact">联系我</a>
+          <a class="nav-link-item" href="#projects"><span class="nav-desktop">项目与服务</span><span class="nav-mobile">项目</span></a>
+          <a class="nav-link-item nav-link-shop" href="https://shop.swicv.com" target="_blank" rel="noopener">购买 ↗</a>
+          <a class="nav-link-item" href="#contact"><span class="nav-desktop">联系我</span><span class="nav-mobile">联系</span></a>
           
           <!-- 昼夜模式切换按钮 -->
           <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="切换昼夜黑白模式" title="切换白天/黑天主题">
@@ -1422,14 +1447,14 @@
         <div>
           <div class="section-eyebrow">Projects &amp; Cloud Services</div>
           <h2 class="section-heading">精选项目与服务</h2>
-          <p class="section-caption">涵盖自托管代理管理平台、多邮箱聚合系统、高可用内网穿透与数字商店，配备完整在线文档。</p>
+          <p class="section-caption">涵盖自托管代理管理平台、多邮箱聚合系统、安全二步验证与高可用内网穿透平台，配备完整在线文档。</p>
         </div>
 
         <!-- 苹果分段选择器 -->
         <div class="segmented-tabs" role="tablist" aria-label="项目分类筛选">
-          <button class="seg-tab-btn active" data-filter="all" type="button">全部展示 (5)</button>
+          <button class="seg-tab-btn active" data-filter="all" type="button">全部展示 (4)</button>
           <button class="seg-tab-btn" data-filter="tool" type="button">开源工具 (2)</button>
-          <button class="seg-tab-btn" data-filter="service" type="button">在线服务 (3)</button>
+          <button class="seg-tab-btn" data-filter="service" type="button">在线服务 (2)</button>
         </div>
       </div>
 
@@ -1547,42 +1572,7 @@
           </div>
         </article>
 
-        <!-- 4. SwiCV Shop -->
-        <article class="project-card" data-category="service" aria-label="SwiCV Shop 项目卡片">
-          <div class="card-top">
-            <div class="card-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7V6a5 5 0 1 1 10 0v1h4v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7h4zm2 0h6V6a3 3 0 1 0-6 0v1zM7 9H5v11h14V9h-2v2a1 1 0 1 1-2 0V9H9v2a1 1 0 1 1-2 0V9z"/></svg>
-            </div>
-            <span class="card-badge">在线商店 · 自动发货</span>
-          </div>
-
-          <div class="card-title-group">
-            <h3 class="card-title">SwiCV Shop</h3>
-            <span class="card-subtitle">数字商品自动发货平台</span>
-          </div>
-
-          <p class="card-desc">
-            买卡密、充值、会员：游戏点卡、流媒体会员、软件授权、礼品卡、AI 工具 —— 付款后全自动发货，凭证立即送达。
-          </p>
-
-          <div class="chips-wrap">
-            <span class="chip-item">卡密自动发货</span>
-            <span class="chip-item">游戏点卡</span>
-            <span class="chip-item">流媒体会员</span>
-            <span class="chip-item">软件授权</span>
-            <span class="chip-item">礼品卡</span>
-            <span class="chip-item">AI 工具</span>
-          </div>
-
-          <div class="card-actions">
-            <a class="action-btn-main" href="https://shop.swicv.com" target="_blank" rel="noopener">
-              <span>进入商店</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- 5. Cosmo NPS -->
+        <!-- 4. Cosmo NPS -->
         <article class="project-card" data-category="service" aria-label="Cosmo NPS 项目卡片">
           <div class="card-top">
             <div class="card-icon-box" aria-hidden="true">
